@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Cart Quantity
+    </title>
+    <style>
+      button{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+
+    
+    <script>
+      /*const variable1 =5-2;
+      console.log(
+        variable1
+      );
+      const var2=2+4;
+      console.log(var2);
+      console.log(var2+4);
+
+      const var3=var2+2;
+      console.log(var3-1);
+
+      const var4='hello, lad';
+      console.log(var4);*/
+    </script>
+    
+
+    <button onclick="console.log(`Cart quantity: ${cartQuant}`);">
+      Show Quantiy
+    </button>
+
+    <button onclick="
+      if (cartQuant +1 >10){
+        alert('Cart is full.');
+      } else {
+        cartQuant++;
+        console.log(`Cart quantity: ${cartQuant}`);
+      }
+      
+    ">
+      Add to cart
+    </button>
+
+    <button onclick="
+      if (cartQuant +2 > 10){
+        alert('Cart is full dummy.');
+      } else {
+        cartQuant +=2;
+        console.log(`Cart quantity: ${cartQuant}`);
+      }
+    ">
+      +2
+    </button>
+
+    <button onclick="
+      if (cartQuant +3 > 10){
+        alert('Cart is full dummy.');
+      } else {
+        cartQuant +=3;
+        console.log(`Cart quantity: ${cartQuant}`);
+      }
+    ">
+      +3
+    </button>
+
+    <button onclick="
+      if (cartQuant +5 > 10){
+        alert('Cart is full dummy.');
+      } else {
+        cartQuant +=5;
+        console.log(`Cart quantity: ${cartQuant}`);
+      }
+    ">
+      +5
+    </button>
+
+    <button onclick="
+      if (cartQuant -1 < 0){
+        alert('Not enough items to remove.');
+      } else {
+        cartQuant --;
+        console.log(`Cart quantity: ${cartQuant}`);
+      }
+    ">
+      Remove from cart
+    </button>
+
+    <button onclick="
+      if (cartQuant -2 < 0){
+        alert('Not enough items to remove.');
+      } else {
+        cartQuant -=2;
+        console.log(`Cart quantity: ${cartQuant}`);
+      }
+    ">
+      -2
+    </button>
+
+    <button onclick="
+      if (cartQuant -5 < 0){
+        alert('Not enough items to remove.');
+      } else {
+        cartQuant -=5;
+        console.log(`Cart quantity: ${cartQuant}`);
+      }
+    ">
+      -5
+    </button>
+
+    <button onclick="
+    cartQuant=0;
+    console.log(`Cart has been reset`);
+    console.log(`Cart quantity: ${cartQuant}`);
+    ">
+      Reset Cart
+    </button>
+
+    <script>
+      let cartQuant=0;
+    </script>
+
+  </body>
+</html>

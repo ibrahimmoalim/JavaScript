@@ -25,10 +25,23 @@
       }
       */
 
-      console.log(false || true); /* this is called or operator, it checks if atleast oneside is true*/
+      /*
+      console.log(false || true);   //this is called or operator, it checks if atleast oneside is true
 
-      console.log('')
+      console.log(!false);   //the "!" switches it to the opposite wihich is 'true'
+      
+      console.log('hi' / 6);   //this will output "NaN" b/c 'hi' is not a number but a string 
+      */
+      const result= 0 ? 'good' : 'bad'
+      console.log(result);
 
+      1 && console.log('hi'); //this is called guard operator, it only runs whatever is after the && if first part is a true value like 5 or true, like the ternary operator this can also work with variables e.g
+      const var1= '' && 'hello';
+      console.log(var1);
+
+      const currency= '' || 'USD';
+      console.log(currency);
+      
     </script>
 
   </body>

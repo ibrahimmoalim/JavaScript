@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      objects
+    </title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <script>
+      /*
+      const product={
+        name: 'socks',
+        price: 10
+      }
+      console.log(product);
+      console.log(product.name);
+      console.log(product.price);
+      product.name= 'shirt';
+      console.log(product);
+
+      product.item= 'pants';
+      console.log(product);
+
+      delete product.item;
+      console.log(product);
+      */
+
+      const product2={
+        item: 'hat',
+        item2: 'shoe',
+        ['item3']: 'sandal',
+        rating:{
+          stars: 4.5, count: 80
+        },
+        func: function function1(){
+          console.log('this is a function inside an object');
+        }
+      }
+      product2.func();
+      console.log(product2.rating);
+
+      console.log(product2);
+      console.log(product2['item2']);
+      console.log(product2['item3']);
+
+      console.log(JSON.stringify(product2));
+      
+      const jsonString= JSON.parse(JSON.stringify(product2));
+      console.log(jsonString);
+    </script>
+  </body>
+</html>

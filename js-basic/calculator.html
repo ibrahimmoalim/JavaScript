@@ -74,66 +74,59 @@
       ">&divide;</button>
       <button>&radic;</button>
       <button class="num" onclick="
-        calc+=4;
-        console.log(`${calc}`);  
+        calculate('4')
       ">4</button>
       <button class="num" onclick="
-        calc+=5;
-        console.log(`${calc}`);  
+        calculate('5')
       ">5</button>
       <button class="num" onclick="
-        calc+=6;
-        console.log(`${calc}`);  
+        calculate('6') 
       ">6</button>
       <button onclick="
-        calc+=' * ';
-        console.log(`${calc}`);  
+        calculate(' * ')
       ">x</button>
       <button onclick="
         calc*=calc;
         console.log(`${calc}`);  
       "><em>X<sup>2</sup></em></button>
       <button class="num" onclick="
-        calc+=1;
-        console.log(`${calc}`);  
+        calculate('1') 
       ">1</button>
       <button class="num" onclick="
-        calc+=2;
-        console.log(`${calc}`);  
+        calculate('2')
       ">2</button>
       <button class="num" onclick="
-        calc+=3;
-        console.log(`${calc}`);  
+        calculate('3')
       ">3</button>
       <button onclick="
-        calc+=' - ';
-        console.log(`${calc}`);  
+        calculate(' - ')
       ">-</button>
       <button class="equal-button" onclick="
         calc=eval(calc);
         console.log(`${calc}`);  
       ">=</button>
       <button class="num" onclick="
-        calc+=0;
-        console.log(`${calc}`);  
+        calculate('0')
       ">0</button>
       <button onclick="
-        calc+='.';
-        console.log(`${calc}`);  
+        calculate('.')
       ">.</button>
       <button onclick="
         calc/='100';
         console.log(`${calc}`);  
       ">%</button>
       <button onclick="
-        calc+=' + ';
-        console.log(`${calc}`);  
+        calculate(' + ')
       ">+</button>
     </div>
     
 
     <script>
       let calc='';
+      function calculate(value){
+        calc+= value;
+        console.log(`${calc}`); 
+      }
     </script>
   </body>
 </html>  

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      exercise2
+    </title>
+  </head>
+  <body>
+    convertToFahrenheit(15);
+    <script>
+
+      function fn1(name){
+        return(`his name is ${name}`);
+      }
+      console.log(fn1('Ali'));
+
+      function fn2(name2, adjective){
+        const var1= fn1(name2);
+        return`${var1} ${adjective}`;
+      }
+      console.log(fn2('ahmed','he is dumb'));
+      
+      /*
+      function greet(name){
+        if (!name){
+          console.log('hi there');
+        } else {
+          console.log(`hi ${name}`);
+        }
+      }
+      greet('ali');
+      greet('ahmed');
+      greet();
+      */
+
+      
+      function convertToFahrenheit(celsius){
+        return(celsius * 9/5)+32;
+      }
+      console.log(convertToFahrenheit(14));
+
+      function convertToCelsius(Fehrenheit){
+        return(Fehrenheit -32) * 5/9;
+      }
+      console.log(convertToCelsius(86));
+      
+
+      function convertTemp(degrees, unit){
+        if (unit==='C'){
+          const result= convertToFahrenheit(degrees);
+          return`${result}F`
+        }
+        else if (unit==='F'){
+          const result= convertToCelsius(degrees);
+          return`${result}C`
+        }
+      }
+      console.log(convertTemp(100,'C'));
+      console.log(convertTemp(100,'F'));
+    </script>
+
+  </body>
+</html>

@@ -44,12 +44,10 @@
         console.log(`Cleared.`); 
       "><strong>C</strong></button>
       <button onclick="
-        calc+=' ( ';
-        console.log(`${calc}`);  
+        calculate(' ( ');  
       ">(</button>
       <button onclick="
-        calc+=' \) ';
-        console.log(`${calc}`);  
+        calculate(' ) ');  
       ">)</button>
       <button>mod</button>
       <button onclick="
@@ -57,20 +55,16 @@
         console.log(`${calc}`);  
       ">Pi</button>
       <button class="num" onclick="
-        calc+=7;
-        console.log(`${calc}`);  
+        calculate('7')
       ">7</button>
       <button class="num" onclick="
-        calc+=8;
-        console.log(`${calc}`);  
+        calculate('8') 
       ">8</button>
       <button class="num" onclick="
-        calc+=9;
-        console.log(`${calc}`);  
+        calculate('9') 
       ">9</button>
       <button onclick="
-        calc+=' / ';
-        console.log(`${calc}`);  
+        calculate(' / ') 
       ">&divide;</button>
       <button>&radic;</button>
       <button class="num" onclick="

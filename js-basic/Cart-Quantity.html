@@ -30,84 +30,51 @@
     </script>
     
 
-    <button onclick="console.log(`Cart quantity: ${cartQuant}`);">
+    <button onclick="
+      updateCartQuant(0)
+    ">
       Show Quantiy
     </button>
 
     <button onclick="
-      if (cartQuant +1 >10){
-        alert('Cart is full.');
-      } else {
-        cartQuant++;
-        console.log(`Cart quantity: ${cartQuant}`);
-      }
+      updateCartQuant(1)
       
     ">
       Add to cart
     </button>
 
     <button onclick="
-      if (cartQuant +2 > 10){
-        alert('Cart is full dummy.');
-      } else {
-        cartQuant +=2;
-        console.log(`Cart quantity: ${cartQuant}`);
-      }
+      updateCartQuant(2)
     ">
       +2
     </button>
 
     <button onclick="
-      if (cartQuant +3 > 10){
-        alert('Cart is full dummy.');
-      } else {
-        cartQuant +=3;
-        console.log(`Cart quantity: ${cartQuant}`);
-      }
+      updateCartQuant(3)
     ">
       +3
     </button>
 
     <button onclick="
-      if (cartQuant +5 > 10){
-        alert('Cart is full dummy.');
-      } else {
-        cartQuant +=5;
-        console.log(`Cart quantity: ${cartQuant}`);
-      }
+      updateCartQuant(5)
     ">
       +5
     </button>
 
     <button onclick="
-      if (cartQuant -1 < 0){
-        alert('Not enough items to remove.');
-      } else {
-        cartQuant --;
-        console.log(`Cart quantity: ${cartQuant}`);
-      }
+      updateCartQuant(-1)
     ">
       Remove from cart
     </button>
 
     <button onclick="
-      if (cartQuant -2 < 0){
-        alert('Not enough items to remove.');
-      } else {
-        cartQuant -=2;
-        console.log(`Cart quantity: ${cartQuant}`);
-      }
+      updateCartQuant(-2)
     ">
       -2
     </button>
 
     <button onclick="
-      if (cartQuant -5 < 0){
-        alert('Not enough items to remove.');
-      } else {
-        cartQuant -=5;
-        console.log(`Cart quantity: ${cartQuant}`);
-      }
+      updateCartQuant(-5)
     ">
       -5
     </button>
@@ -122,6 +89,21 @@
 
     <script>
       let cartQuant=0;
+
+      function updateCartQuant(value){
+        if (cartQuant +value > 10){
+        alert('Cart is full dummy.');
+        return;
+      }
+        
+        if (cartQuant +value < 0){
+        alert('Not enough items to remove.');
+        return;
+      }
+
+        cartQuant += value;
+        console.log(`Cart quantity: ${cartQuant}`);
+      }
     </script>
 
   </body>

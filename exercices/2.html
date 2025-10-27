@@ -6,19 +6,8 @@
     </title>
   </head>
   <body>
-    convertToFahrenheit(15);
     <script>
 
-      function fn1(name){
-        return(`his name is ${name}`);
-      }
-      console.log(fn1('Ali'));
-
-      function fn2(name2, adjective){
-        const var1= fn1(name2);
-        return`${var1} ${adjective}`;
-      }
-      console.log(fn2('ahmed','he is dumb'));
       
       /*
       function greet(name){
@@ -33,7 +22,7 @@
       greet();
       */
 
-      
+      /*
       function convertToFahrenheit(celsius){
         return(celsius * 9/5)+32;
       }
@@ -57,6 +46,45 @@
       }
       console.log(convertTemp(100,'C'));
       console.log(convertTemp(100,'F'));
+      */
+
+      function convertLength(length, from, to){
+
+        if (from !== 'km' && from !== 'm' && from !== 'ft' && from !== 'miles'){
+          return `invalid unit: ${from}`;
+        } else if (to !== 'km' && to !== 'm' && to !== 'ft' && to !== 'miles'){
+          return `invalid unit: ${to}`;
+        }
+
+        if (from==='miles'){
+          const miles_km= length*1.6;
+          return(`${length} miles is ${miles_km} km`);
+        }
+        else if (from==='km'){
+          const km_miles=(length/1.6);
+          return(`${length} km is ${km_miles} miles`);
+        }
+        else if (from==='ft'){
+          const ft_m=(length*0.3048).toFixed(2)
+          return(`${length} feet is ${ft_m} m`);
+        }
+        else if (from==='m'){
+          const m_ft=(length/0.3048).toFixed(2)
+          return(`${length} meter is ${m_ft} feet`);
+        }
+        else if (from==='kg' || to==='0'){
+          let from='';
+          let to='';
+          return(`invalid unit: ${from}`);
+        }
+      }
+      console.log(convertLength(50, 'miles', 'km'));
+      console.log(convertLength(32, 'km', 'miles'));
+      console.log(convertLength(6, 'ft', 'm'));
+      console.log(convertLength(1.7, 'm', 'ft'));
+      console.log(convertLength(5, 'm', 'lbs'));
+
+
     </script>
 
   </body>

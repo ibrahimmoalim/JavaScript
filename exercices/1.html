@@ -4,8 +4,33 @@
     <title>
       exercise1
     </title>
+    <style>
+      button:hover{
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
+
+    <button onclick="
+      playGame('Heads');
+      ">
+      Heads
+    </button>
+      
+    <button onclick="
+      playGame('Tails');
+    ">
+      Tails
+    </button>
+    <button onclick="
+      score.wins= 0;
+      score.losses= 0;
+      localStorage.removeItem('score');
+    ">
+      Reset score
+    </button>
+
 
     <script>
       /*const hour= 18;
@@ -26,11 +51,33 @@
         console.log('No discount');
       }*/
 
-      n=Math.random();
-      const result= n<0.5 ? 'Heads' : 'Tails';
 
-      const guess='Heads';
-      console.log(guess===result ? 'You win' : 'You lose');
+      let score= JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      }
+
+      function playGame(guess){
+
+        const n=Math.random()
+        const result= n < 0.5 ? 'Heads' : 'Tails';
+        if (guess===result){
+        score.wins++;
+        } else {
+          score.losses++;
+        }
+        localStorage.setItem('score', JSON.stringify(score));
+
+        if (guess===result){
+          alert(` coin flip: ${result}, You win.\n\n wins: ${score.wins}     losses: ${score.losses}`)
+        } else {
+          alert(` coin flip: ${result}, You lose.\n\n wins: ${score.wins}     losses: ${score.losses}`)
+        }
+
+        
+
+      }
+
     </script>
 
   </body>

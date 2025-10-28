@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Basic calculator
+    </title>
+    <style>
+      button{
+        cursor: pointer;
+        padding: 8px 16px;
+        font-size: 16px;
+        background-color: rgb(156, 156, 156);
+        border: 0px solid grey;
+        border-radius: 4px;
+      }
+      button:hover{
+        opacity: 0.7;
+      }
+      button:active{
+        opacity: 0.5;
+      }
+      .grid-container{
+        display: grid;
+        grid-template-columns: repeat(5, 60px);
+        grid-template-rows: repeat(5, 40px);
+        gap: 3px;
+      }
+      .equal-button{
+        grid-row: 4 / span 2;
+        grid-column: 5;
+        background-color: rgb(255, 123, 0);
+      }
+      .num{
+        background-color: lightgray;
+        border: 0px solid grey;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <button onclick="
+        calc='';
+        console.log(`Cleared.`);
+        localStorage.removeItem('calc'); 
+      "><strong>C</strong></button>
+      <button onclick="
+        calculate(' ( ');  
+      ">(</button>
+      <button onclick="
+        calculate(' ) ');  
+      ">)</button>
+      <button>mod</button>
+      <button onclick="
+        calc*='3.141592654';
+        console.log(`${calc}`);  
+      ">Pi</button>
+      <button class="num" onclick="
+        calculate('7')
+      ">7</button>
+      <button class="num" onclick="
+        calculate('8') 
+      ">8</button>
+      <button class="num" onclick="
+        calculate('9') 
+      ">9</button>
+      <button onclick="
+        calculate(' / ') 
+      ">&divide;</button>
+      <button>&radic;</button>
+      <button class="num" onclick="
+        calculate('4')
+      ">4</button>
+      <button class="num" onclick="
+        calculate('5')
+      ">5</button>
+      <button class="num" onclick="
+        calculate('6') 
+      ">6</button>
+      <button onclick="
+        calculate(' * ')
+      ">x</button>
+      <button onclick="
+        calc*=calc;
+        console.log(`${calc}`);  
+      "><em>X<sup>2</sup></em></button>
+      <button class="num" onclick="
+        calculate('1') 
+      ">1</button>
+      <button class="num" onclick="
+        calculate('2')
+      ">2</button>
+      <button class="num" onclick="
+        calculate('3')
+      ">3</button>
+      <button onclick="
+        calculate(' - ')
+      ">-</button>
+      <button class="equal-button" onclick="
+        calc=eval(calc);
+        console.log(`${calc.toFixed(2)}`);
+        calc='';  
+      ">=</button>
+      <button class="num" onclick="
+        calculate('0')
+      ">0</button>
+      <button onclick="
+        calculate('.')
+      ">.</button>
+      <button onclick="
+        calc/='100';
+        console.log(`${calc}`);  
+      ">%</button>
+      <button onclick="
+        calculate(' + ')
+      ">+</button>
+    </div>
+    
+
+    <script>
+
+      let calc=JSON.parse(localStorage.getItem('calc')) || ''
+      
+      function calculate(value){
+        calc+= value;
+        console.log(`${calc}`); 
+        localStorage.setItem('calc', JSON.stringify(calc));
+      }
+    </script>
+  </body>
+</html>  

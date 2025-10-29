@@ -29,10 +29,12 @@
 
     <br><br><br><br>
 
-    <input class="js-input" placeholder="Calculate">
+    <input class="js-input" placeholder="Calculate" onkeydown="
+      hitEnter()
+    ">
     <button onclick="calc()">Calculate</button>
     <p class="js-total"></p>
-
+    
 
     <script>
       const buttonElement = document.querySelector('.js-button') 
@@ -44,6 +46,12 @@
         }
       }
       
+      function hitEnter(){
+        if (event.key==='Enter'){
+          calc()
+        }
+      }
+
       function calc(){
         let value= document.querySelector('.js-input').value;
         let cost= Number(value);
@@ -63,6 +71,7 @@
         document.querySelector('.js-total')
          .innerHTML = `$${cost}`
       } 
+
     </script>
   </body>
 </html>

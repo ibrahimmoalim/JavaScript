@@ -30,11 +30,17 @@
       playGame('Scissors');
     ">Scissors</button>
 
+    <p class="js-player-result"></p>
+    <p class="js-result"></p>
+    <p class="js-score"></p>
+
     <button onclick="
       score.wins=0;
       score.losses=0;
       score.ties=0;
       localStorage.removeItem('score');
+      updateScore()
+      refresh()
     ">
       Reset Score
     </button>
@@ -48,6 +54,8 @@
           losses: 0,
           ties: 0
         };
+
+      updateScore()
 
       /*
       if (!score){
@@ -70,7 +78,7 @@
           } else if (AiMove==='Paper') {
             result= 'You win.';
           } else if (AiMove==='Scissors') {
-            result= 'It\'s a tie.';
+            result= 'Tie.';
           }
         }
         
@@ -78,7 +86,7 @@
           if (AiMove==='Rock') {
             result= 'You win.';
           } else if (AiMove==='Paper') {
-            result= 'It\'s a tie.';
+            result= 'Tie.';
           } else if (AiMove==='Scissors') {
             result= 'You lose.';
           }
@@ -86,7 +94,7 @@
         
         else if (playerMove==='Rock'){
           if (AiMove==='Rock') {
-            result= 'It\'s a tie.';
+            result= 'Tie.';
           } else if (AiMove==='Paper') {
             result= 'You lose.';
           } else if (AiMove==='Scissors') {
@@ -98,13 +106,39 @@
           score.wins ++;
         } else if (result==='You lose.'){
           score.losses++;
-        } else if (result==='It\'s a tie.'){
+        } else if (result==='Tie.'){
           score.ties++;
         }
 
         localStorage.setItem('score', JSON.stringify(score));
 
-        alert(`You picked ${playerMove}. Computer picked ${AiMove}. Therefore ${result}\nwins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}.`);
+        updateScore()
+
+        document.querySelector('.js-player-result')
+          .innerHTML = result
+          
+        document.querySelector('.js-result')
+          .innerHTML = `You picked: ${playerMove} - Computer picked: ${AiMove}`
+      }
+
+      function updateScore(){
+        document.querySelector('.js-score')
+        .innerHTML = `wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}.`
+      }
+
+      function refresh(){
+        if (score={
+          wins: 0,
+          losses: 0,
+          ties: 0
+          }
+        ){
+          document.querySelector('.js-player-result')
+           .innerHTML = ''
+          
+          document.querySelector('.js-result')
+           .innerHTML = ''
+        }
       }
 
       function pickAiMove(){

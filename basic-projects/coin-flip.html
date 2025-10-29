@@ -11,7 +11,7 @@
     </style>
   </head>
   <body>
-
+    <h3>Guess Heads or Tails to play</h3>
     <button onclick="
       playGame('Heads');
       ">
@@ -24,12 +24,14 @@
       Tails
     </button>
 
+    <p class="js-result"></p>
     <p class="js-score"></p>
 
     <button onclick="
       score.wins= 0;
       score.losses= 0;
       localStorage.removeItem('score');
+      refresh()
     ">
       Reset score
     </button>
@@ -41,7 +43,7 @@
         wins: 0,
         losses: 0
       }
-
+      updateScore()
 
       function playGame(guess){
 
@@ -54,21 +56,32 @@
         }
         localStorage.setItem('score', JSON.stringify(score));
 
-        gameScore()
 
-        if (guess===result){
-          alert(` coin flip: ${result}, You win.\n\n wins: ${score.wins} - losses: ${score.losses}`)
-        } else {
-          alert(` coin flip: ${result}, You lose.\n\n wins: ${score.wins} - losses: ${score.losses}`)
-        }
+        flipResult()
+        function flipResult(){
+          const gameResult= guess===result ? document.querySelector('.js-result')
+         .innerHTML = `coin flip: ${result} - You win.` : document.querySelector('.js-result')
+         .innerHTML = `coin flip: ${result} - You lose.`;
+        } 
 
-        function gameScore(){
-        document.querySelector('.js-score')
-         .innerHTML = `wins: ${score.wins} - losses: ${score.losses}`;
-        }
+        updateScore()
+        
       }
 
-    </script>
+      function updateScore(){
+          document.querySelector('.js-score')
+           .innerHTML = `wins: ${score.wins} - losses: ${score.losses}`
+        }
 
+      function refresh(){
+          if (score.wins=== 0 && score.losses === 0){
+            document.querySelector('.js-result')
+            .innerHTML = '';
+          document.querySelector('.js-score')
+            .innerHTML = '';
+          }
+        }
+
+    </script>
   </body>
 </html>

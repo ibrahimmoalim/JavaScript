@@ -68,8 +68,8 @@
         else if (cost < 40){
           cost+=10;
         }
-        document.querySelector('.js-total')
-         .innerHTML = `$${cost}`
+        Number(document.querySelector('.js-total')
+         .innerHTML = `$${cost.toFixed(2)}`)
       } 
 
     </script>

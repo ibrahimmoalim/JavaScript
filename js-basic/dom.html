@@ -32,6 +32,12 @@
     <input placeholder="search">
     <button onclick="search()">Search</button>
 
+    <br><br><br><br>
+
+    <input placeholder="type here to mirror below" class="js-input" onkeyup="
+      keyUp()
+    ">
+    <p class="js-mirror"></p>
 
     <script>
       /*
@@ -67,6 +73,15 @@
               alert('Haram')
             }
       }
+
+      function keyUp(){
+        let type = document.querySelector('.js-input')
+
+        let mirror = document.querySelector('.js-mirror')
+
+        mirror.innerHTML =type.value
+      }
+
       
     </script>
   </body>

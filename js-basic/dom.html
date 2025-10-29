@@ -15,39 +15,58 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
     }
-    
+    button {
+      cursor: pointer;
+    }
   </style>
   <body>
+    <!--
     <button>
       hi lad
     </button>
-    <button>
+    <button class="js-button">
       hello
     </button>
+    -->
+
+    <input placeholder="search">
+    <button onclick="search()">Search</button>
 
 
     <script>
-
-      
       /*
       document.body.innerHTML='hello'
       document.title='hi buddy'
       */
 
-      
+      /*
       document.body.innerHTML=`
         <button title="hello there!"style="cursor:pointer;"> hello </button>
         <hr>
         <h2>header</h2>
         <p>this is a <strong><em>paragraph</em></strong></p>
       `;
-      
-      console.log(document.querySelector('button'));
+      */
+      /*
+      console.log(document.querySelector('button').innerHTML);
       document.querySelector('button')
         .innerHTML= 'brat';
 
-      document.querySelector('h2')
-        .innerHTML='topic'
+      const buttonElement = document.querySelector('.js-button');
+      console.log(buttonElement);
+      */
+     
+      function search(){
+        let textInput = document.querySelector('input');
+        if (textInput.value==='porn'
+            || textInput.value==='nudes'
+            || textInput.value==='sex'
+            || textInput.value==='naked'
+            ){
+              textInput.value = ''
+              alert('Haram')
+            }
+      }
       
     </script>
   </body>

@@ -79,32 +79,50 @@
       -5
     </button>
 
+    <p class="js-quant1"></p>
+    <p class="js-quant"></p>
+
     <button onclick="
-    cartQuant=0;
-    console.log(`Cart has been reset`);
-    console.log(`Cart quantity: ${cartQuant}`);
+    resetMessage()
+    localStorage.removeItem('cart');
     ">
       Reset Cart
     </button>
 
     <script>
-      let cartQuant=0;
+
+      let cartQuant = JSON.parse(localStorage.getItem('cart')) || 0
+
+      quantity()
 
       function updateCartQuant(value){
+        document.querySelector('.js-quant1').innerHTML = ''
+
         if (cartQuant +value > 10){
-        alert('Cart is full dummy.');
+        document.querySelector('.js-quant').innerHTML = `Cart is full.`
         return;
       }
         
         if (cartQuant +value < 0){
-        alert('Not enough items to remove.');
+        document.querySelector('.js-quant').innerHTML = `Not enough items to remove.`
         return;
       }
 
         cartQuant += value;
-        console.log(`Cart quantity: ${cartQuant}`);
+        quantity()
+        localStorage.setItem('cart', JSON.stringify(cartQuant));
       }
-    </script>
 
+      function quantity(){
+        document.querySelector('.js-quant').innerHTML = `Cart quantity: ${cartQuant}`
+      }
+
+      function resetMessage(){
+        cartQuant=0;
+        quantity()
+        document.querySelector('.js-quant1').innerHTML = `Cart has been reset`
+      }
+
+    </script>
   </body>
 </html>

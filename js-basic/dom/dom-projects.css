@@ -1,0 +1,46 @@
+html{
+  padding: 0;
+  margin: 0;
+}
+body{
+  padding: 0;
+  margin: 0;
+  font-family: Arial;
+}
+button {
+  cursor: pointer;
+}
+
+.js-total {
+  height: 5px;
+}
+.js-button{
+  background-color: black;
+  padding: 10px 16px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.is-subscribed{
+  background-color: rgb(241, 241, 241);
+  color: black;
+}
+
+.cost-input{
+  font-size: 15px;
+  padding: 10px 10px;
+}
+.cost-input:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+.calc-button{
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  font-size: 15px;
+  font-weight: bold;
+}

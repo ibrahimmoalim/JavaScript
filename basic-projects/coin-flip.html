@@ -69,18 +69,18 @@
       }
 
       function updateScore(){
-          document.querySelector('.js-score')
-           .innerHTML = `wins: ${score.wins} - losses: ${score.losses}`
-        }
+        document.querySelector('.js-score')
+          .innerHTML = `wins: ${score.wins} - losses: ${score.losses}`
+      }
 
       function refresh(){
-          if (score.wins=== 0 && score.losses === 0){
-            document.querySelector('.js-result')
-            .innerHTML = '';
-          document.querySelector('.js-score')
-            .innerHTML = '';
-          }
+        if (score.wins=== 0 && score.losses === 0){
+          document.querySelector('.js-result')
+          .innerHTML = '';
+        document.querySelector('.js-score')
+          .innerHTML = '';
         }
+      }
 
     </script>
   </body>

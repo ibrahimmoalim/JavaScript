@@ -21,9 +21,16 @@ function calc(){
   if (isNaN(cost) || value===''){
     // ^^ checks whether "cost" is NaN (Not a Number), if true then code below is run.
     document.querySelector('.js-total')
-    .innerHTML = `Enter a Number`
+    .innerHTML = `Error: enter a Number`
+    document.querySelector('.js-total').classList.add('error')
     return;
   }
+  if(cost < 0){
+    document.querySelector('.js-total').classList.add('error')
+    document.querySelector('.js-total').innerHTML = 'Error: cost cannot be less than $0'
+    return;
+  }
+  document.querySelector('.js-total').classList.remove('error')
   if (cost===0){
     document.querySelector('.js-total')
     .innerHTML = `$0`

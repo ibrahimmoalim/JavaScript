@@ -1,0 +1,10 @@
+On 2nd week of studying JS through YouTube and these "Problem Solving" and "Algorithms" things are really hurting my brain and frustratig me. but i'll push through.  
+If anyone is reading this and having the same problem i just want you to know it's normal and it's this hard for most beginners (or so i heard).
+
+btw i'm learning from YouTube:  
+[JavaScript Tutorial Full Course - Beginner to Pro](https://www.youtube.com/watch?v=EerdGm-ehJQ) (haven't finished yet)
+
+for Problem Solving even though im still struggling with it, these helped:
+
+[The Odin Project - Learn to Solve Problems and Understand Errors](https://www.freecodecamp.org/learn/the-odin-project/#top-learn-to-solve-problems-and-understand-errors)  
+[JavaScript Algorithms and Data Structures](https://www.youtube.com/playlist?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP) (haven't finished this yet, im on the first few videos)

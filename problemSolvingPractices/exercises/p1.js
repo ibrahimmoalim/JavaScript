@@ -1,7 +1,9 @@
 
 
 function highestNum(nums) {
+  
   let max = -Infinity, second = -Infinity, third = -Infinity, min = Infinity;
+
   if (nums.length === 0) {
     max = null, min = null, second = null, third = null
   }
@@ -23,7 +25,6 @@ function highestNum(nums) {
       min = num
     }
   }
-
 
   return { max, second, third, min };
 }

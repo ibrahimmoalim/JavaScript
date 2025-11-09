@@ -2,9 +2,8 @@ On 2nd week of studying JS (**2025-NOV**) through YouTube and these "Problem Sol
 If anyone is reading this and having the same problem i just want you to know it's normal and it's this hard for most beginners (or so i heard).
 
 Learning from **YouTube**:  
-[*JavaScript Tutorial Full Course - Beginner to Pro*](https://www.youtube.com/watch?v=EerdGm-ehJQ) (haven't finished yet)
+[*JavaScript Tutorial Full Course - Beginner to Pro*](https://www.youtube.com/watch?v=EerdGm-ehJQ)
 
-for Problem Solving:
-
+for Problem Solving:  
 [*The Odin Project - Learn to Solve Problems and Understand Errors*](https://www.freecodecamp.org/learn/the-odin-project/#top-learn-to-solve-problems-and-understand-errors)  
-[*JavaScript Algorithms and Data Structures*](https://www.youtube.com/playlist?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP) (haven't finished this yet, im on the first few videos)
+[*JavaScript Algorithms and Data Structures*](https://www.youtube.com/playlist?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)

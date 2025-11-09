@@ -33,16 +33,17 @@
         1,2,3,4,5,6,7,8,9
       ]
 
-      array1.push('axmed') // adds an item at the end of an array - 0(1)
+      array1.push('axmed') // adds an item at the end of an array - 0(1)  -  constant
       array1.pop()  // removes item from the end of an array, so removes "axmed" - O(1)
 
       array1.shift() // removes the first item, updates [i] for every item so it's linear time complexity
       array1.unshift(-2)  // adds an item to the beginning of an array, 0(n) for the same reason as above
 
-      array1.splice(3,2)  // deletes "2" items, starting at index "3", so deletes 4 and 5, O(n) for the same reason as .shift
-      array1.splice(1,0,-1,0,1)  // adds "-1,0,1" starting from index "1" , the "0" is for not removing anything
-      array1.splice(6,0,4,5)
+      array1.splice(3,2)  // deletes "2" items, starting at index "3", so deletes 4 and 5, O(n) for the same reason as .shift (splice is used for deleting items or adding items into start or middle or end of an array)
+      array1.splice(1,0,-1,0,1)  // adds "-1,0,1" starting from index "1" , the "0" is for not removing anything  -  O(n)
+      array1.splice(6,0,4,5)  // adds "4,5" starting from index "6" , the "0" is for not removing anything  -  O(n)
 
+      // most of the other array methods are 0(n)  -  linear
 
       console.log(array1)
       console.log(array1[5]) // O(1)

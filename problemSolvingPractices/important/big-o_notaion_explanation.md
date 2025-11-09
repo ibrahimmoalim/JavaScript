@@ -1,4 +1,4 @@
-
+> **note:** This is copied from chatgpt
 ---
 
 ### 🧠 **1. Big-O Notation**

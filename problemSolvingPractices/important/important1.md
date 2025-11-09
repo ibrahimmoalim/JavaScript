@@ -1,3 +1,6 @@
+> **note:** This is copied from chatgpt
+
+
 You don’t need to wait until you’ve mastered all of JavaScript before learning problem-solving and algorithms.
 👉 It’s best to mix both — but in the right ratio.
 

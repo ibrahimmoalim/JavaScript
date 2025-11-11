@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      exercise1
+    </title>
+    <style>
+      button:hover{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+
+    <button onclick="
+      playGame('Heads');
+      ">
+      Heads
+    </button>
+      
+    <button onclick="
+      playGame('Tails');
+    ">
+      Tails
+    </button>
+    <button onclick="
+      score.wins= 0;
+      score.losses= 0;
+      localStorage.removeItem('score');
+    ">
+      Reset score
+    </button>
+
+
+    <script src="1.js"></script>
+
+  </body>
+</html>

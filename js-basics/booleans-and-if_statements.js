@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Booleans
-    </title>
-  </head>
-  <body>
-
-    <script>
-
       /*console.log(3 === 5);
 
       const age=[14, 15, 75];
@@ -41,8 +30,3 @@
 
       const currency= '' || 'USD';
       console.log(currency);
-      
-    </script>
-
-  </body>
-</html>

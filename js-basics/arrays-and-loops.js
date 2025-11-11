@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Arrays and Loops Practice</title>
-  </head>
-  <body>
-
-
-    <script>
       /*
       const myArray= [10,20,30,40];
       console.log(myArray)
@@ -83,6 +74,3 @@
         numsDoubled.push(num*2)
       } 
       console.log(numsDoubled)
-    </script>
-  </body>
-</html>

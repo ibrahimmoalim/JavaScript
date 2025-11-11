@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      exercise2
-    </title>
-  </head>
-  <body>
-    <script>
-
-      
       /*
       function greet(name){
         if (!name){
@@ -83,9 +72,3 @@
       console.log(convertLength(6, 'ft', 'm'));
       console.log(convertLength(1.7, 'm', 'ft'));
       console.log(convertLength(5, 'm', 'lbs'));
-
-
-    </script>
-
-  </body>
-</html>

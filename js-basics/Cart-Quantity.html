@@ -12,24 +12,6 @@
   </head>
   <body>
 
-    
-    <script>
-      /*const variable1 =5-2;
-      console.log(
-        variable1
-      );
-      const var2=2+4;
-      console.log(var2);
-      console.log(var2+4);
-
-      const var3=var2+2;
-      console.log(var3-1);
-
-      const var4='hello, lad';
-      console.log(var4);*/
-    </script>
-    
-
     <button onclick="
       updateCartQuant(0)
     ">
@@ -89,6 +71,8 @@
       Reset Cart
     </button>
 
+
+
     <script>
 
       let cartQuant = JSON.parse(localStorage.getItem('cart')) || 0
@@ -123,6 +107,20 @@
         document.querySelector('.js-quant1').innerHTML = `Cart has been reset`
       }
 
+
+      /*const variable1 =5-2;
+      console.log(
+        variable1
+      );
+      const var2=2+4;
+      console.log(var2);
+      console.log(var2+4);
+
+      const var3=var2+2;
+      console.log(var3-1);
+
+      const var4='hello, lad';
+      console.log(var4);*/
     </script>
   </body>
 </html>

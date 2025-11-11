@@ -1,3 +1,8 @@
+body {
+  background-color: rgb(0, 0, 0);
+  height: 100%;
+}
+
 button{
   cursor: pointer;
   padding: 8px 16px;
@@ -19,6 +24,9 @@ button:active{
 }
 
 .grid-container{
+  position: fixed;
+  top: 40%;
+  right: 42%;
   width: fit-content;
   padding: 3px;
   display: grid;
@@ -36,7 +44,7 @@ button:active{
 .js-screen{
   grid-column: 1 / span 5;
   grid-row: 1 / span 2;
-  background-color: rgba(214, 214, 214, 0.5);
+  background-color: rgba(255, 255, 255, 1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   /* ^^ apple's safari browser support for "backdrop-filter" */

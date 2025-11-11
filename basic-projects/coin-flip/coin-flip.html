@@ -4,39 +4,36 @@
     <title>
       Basic Coin flip
     </title>
-    <style>
-      button:hover{
-        cursor: pointer;
-      }
-    </style>
+    <link rel="stylesheet" href="coin-flip.css">
   </head>
   <body>
-    <h3>Guess Heads or Tails to play</h3>
-    <button onclick="
-      playGame('Heads');
+    <div class="container" >
+      <h3><img src="callit.gif" alt="Call It"> </h3>
+      <button onclick="
+        playGame('Heads');
+        ">
+        Heads
+      </button>
+        
+      <button onclick="
+        playGame('Tails');
       ">
-      Heads
-    </button>
-      
-    <button onclick="
-      playGame('Tails');
-    ">
-      Tails
-    </button>
+        Tails
+      </button>
 
-    <p class="js-result"></p>
-    <p class="js-score"></p>
+      <p class="js-result result"></p>
+      <p class="js-score score"></p>
 
-    <button onclick="
-      score.wins= 0;
-      score.losses= 0;
-      localStorage.removeItem('score');
-      refresh()
-    ">
-      Reset score
-    </button>
-
-
+      <button onclick="
+        score.wins= 0;
+        score.losses= 0;
+        localStorage.removeItem('score');
+        refresh()
+      ">
+        Reset score
+      </button>
+    </div>
+    
     <script src="coin-flip.js"></script>
   </body>
 </html>

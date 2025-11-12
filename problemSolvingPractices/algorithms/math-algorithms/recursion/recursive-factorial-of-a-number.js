@@ -1,6 +1,5 @@
 function recursiveFactorial(n){
   if (n<1) return 1;  // base case
-  
 
   return n * recursiveFactorial(n-1)
 }

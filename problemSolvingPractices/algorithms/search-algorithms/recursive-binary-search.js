@@ -31,3 +31,5 @@ console.log(recursiveBinarySearch([6,12,-2,1,5], 1))  // 1
 console.log(recursiveBinarySearch([6,12,-2,1,5], 30))  // -1
 
 // Big-O = O(logn)
+// iterative version is better for memory efficiency
+// space complexity of iterative version is O(1), while recursive is O(logn)

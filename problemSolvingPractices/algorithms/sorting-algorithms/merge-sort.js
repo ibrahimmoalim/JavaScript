@@ -2,8 +2,8 @@ function mergeSort(arr){
   if (arr.length < 2) return arr;
 
   const mid = Math.floor(arr.length /2)
-  const leftArr = arr.slice(0, mid)
-  const rightArr = arr.slice(mid)
+  const leftArr = arr.slice(0, mid)  
+  const rightArr = arr.slice(mid) 
 
   return merge(mergeSort(leftArr), mergeSort(rightArr))
 }
@@ -17,7 +17,10 @@ function merge(leftArr, rightArr){
       sortedArr.push(rightArr.shift())
     }
   }
+  console.log([...sortedArr, ...leftArr, ...rightArr])
   return [...sortedArr, ...leftArr, ...rightArr]
 }
 
-console.log(mergeSort([-6,20,-2,8,4]))
+console.log(mergeSort([-6,20,8,-2,4])) // [ -6, -2, 4, 8, 20 ]
+
+// Big-O = O(nlogn)

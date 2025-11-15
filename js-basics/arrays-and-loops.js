@@ -1,5 +1,5 @@
-      /*
-      const myArray= [10,20,30,40];
+      
+      const myArray= [1,2,3,4,5,6,7,8,9,10];
       console.log(myArray)
 
       console.log(myArray[2])
@@ -9,17 +9,28 @@
 
       const arrays= [1, 'hello',true,{name:'socks', id:'24'}, [3,4]]
       console.log(arrays);
-      console.log(Array.isArray([1, 'hello',true,{name:'socks', id:'24'}, [3,4]]))
+      console.log(Array.isArray(arrays))
       //           ^^ checks if value is an array
 
-      myArray.push(50)
-      // add to an array
+      myArray.push(11)
+      // add to an element to the end of array
       console.log(myArray)
 
-      myArray.splice(1,2)
-      //remove values from an array
-      console.log(myArray)
-      */
+      // myArray.splice(1,2)
+      // //removes "2" values from the array starting from index "1"
+      // console.log(myArray)
+
+      // gets a section out of the array starting from index "2" till index "6" but doesn't include the element of index "6"
+      console.log(myArray.slice(2,6)) // [3, 4, 5 , 6]
+      console.log(myArray.slice(5)) // [6, 7, 8, 9, 10, 11]
+
+      // ".shift" removes the first element of the array, but we can also use this to move an element in an array to another array
+      // example: arrays.push(myArray.shift()) => [1, 'hello',...1]
+      console.log(myArray.shift()) // 1
+      
+      // myArray.shift();
+      // console.log(myArray)
+      
 
       /*
       let n=1;
@@ -58,19 +69,19 @@
       */  
 
 
-      const nums=[1,1,3]
-      let result=0;
+      // const nums=[1,1,3]
+      // let result=0;
 
-      for (let i =0; i<nums.length; i++){
-        const num=nums[i]
-        result+=num
-      }
-      console.log(result)
+      // for (let i =0; i<nums.length; i++){
+      //   const num=nums[i]
+      //   result+=num
+      // }
+      // console.log(result)
 
-      const numsDoubled=[]
+      // const numsDoubled=[]
 
-      for (let i =0; i<nums.length; i++){
-        const num=nums[i]
-        numsDoubled.push(num*2)
-      } 
-      console.log(numsDoubled)
+      // for (let i =0; i<nums.length; i++){
+      //   const num=nums[i]
+      //   numsDoubled.push(num*2)
+      // } 
+      // console.log(numsDoubled)

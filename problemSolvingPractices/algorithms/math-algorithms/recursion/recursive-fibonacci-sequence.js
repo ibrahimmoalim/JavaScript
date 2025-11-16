@@ -25,7 +25,7 @@ console.log(recursiveFibonacci(6))  // 8
 // iterative solution
 
 // function Fibonacci(n){
-//   let fib=[0,1]
+//   fib=[0,1]
 
 //   for (let i=2; i<=n; i++){
 //     fib[i]=fib[i-2]+fib[i-1]

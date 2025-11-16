@@ -1,3 +1,5 @@
+// cartesian product of two sets
+
 function cartesianProduct(arr, arr2){
 
   const prod = []

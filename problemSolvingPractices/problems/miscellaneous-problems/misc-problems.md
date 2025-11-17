@@ -2,10 +2,6 @@ Here are **miscellaneous JavaScript practice problems** across difficulty levels
 
 ---
 
-# ✅ **JavaScript Miscellaneous Problems**
-
----
-
 ## **1. Remove duplicates from an array**
 
 **Problem:**

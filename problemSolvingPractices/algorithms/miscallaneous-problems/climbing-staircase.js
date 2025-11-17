@@ -1,4 +1,4 @@
-// climbing staircase problem
+// climbing staircase problem (dynamic programming technique)
 
 function climbingStaircase(n){
   const noOfWays = [1, 2]

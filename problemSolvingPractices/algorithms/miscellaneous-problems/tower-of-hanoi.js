@@ -9,7 +9,7 @@ function towerOfHanoi(n, fromRod, toRod, usingRod){
   towerOfHanoi(n-1, usingRod, toRod, fromRod)
 }
 
-towerOfHanoi(4, 'a', 'c', 'b')
+towerOfHanoi(3, 'a', 'c', 'b')
 
 // Big-O = O(2^n -1)
 // approximated to O(2^n)

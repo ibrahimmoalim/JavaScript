@@ -1,4 +1,4 @@
-
+// find the largest
 
 function highestNum(nums) {
   
@@ -29,6 +29,8 @@ function highestNum(nums) {
   return { max, second, third, min };
 }
 console.log(highestNum([34, 4, 71, 2, 99, 34, 2, -34, -8, 99, 4]))
+
+// Big-O = O(n)
 
 /*
 function summation(n){

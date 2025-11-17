@@ -24,4 +24,4 @@ console.log(quickSort([-6,20,8,-2,4])) // [-6, -2, 4, 8, 20]
 
 // (O(n) * O(logn)) = O(nlogn)
 // average case = O(nlogn)
-// worst case = O(n^2), is arr is sorted already
+// worst case = O(n^2), if arr is sorted already

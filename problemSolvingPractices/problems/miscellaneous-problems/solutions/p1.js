@@ -1,9 +1,9 @@
-// **Problem:**
+// Problem: Remove duplicates from an array
 // Given an array, return a new array with duplicates removed.
 
-// **Example:**
-// Input: `[1, 2, 2, 3, 4, 4]`
-// Output: `[1, 2, 3, 4]`
+// Example:
+// Input: [1, 2, 2, 3, 4, 4]
+// Output: [1, 2, 3, 4]
 
 function removeDuplicates(arr){
   for (let i=0; i< arr.length; i++){

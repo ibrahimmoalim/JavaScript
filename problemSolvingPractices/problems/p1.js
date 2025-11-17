@@ -1,4 +1,4 @@
-// find the largest
+// find the largest, smallest, second largest and third largest number in an array of numbers
 
 function highestNum(nums) {
   

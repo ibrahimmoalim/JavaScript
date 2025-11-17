@@ -1,4 +1,4 @@
-Here are **miscellaneous JavaScript practice problems** across difficulty levels, each with a short description and a sample expected output. If you'd like solutions too, just tell me!
+Here are **miscellaneous JavaScript practice problems** across difficulty levels, each with a short description and a sample expected output.
 
 ---
 
@@ -123,14 +123,3 @@ Output:
 Support `.on(event, callback)` and `.emit(event)`.
 
 ---
-
-# Want the solutions?
-
-I can give you:
-
-✅ Full JavaScript solutions
-✅ Explanations
-✅ More questions (basic → advanced → interview-level)
-
-Just tell me:
-**"Give solutions"** or **"More problems"** or **"Give advanced JS problems"**.

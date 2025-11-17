@@ -1,5 +1,4 @@
-// Problem:
-// Reverse words in a sentence
+// Problem: Reverse words in a sentence
 // Reverse the order of words, not the characters.
 
 // Example:

@@ -4,6 +4,7 @@ function onKeyDown(e){
   }
 }
 
+let todos = JSON.parse(localStorage.getItem('todos')) || []
 
 const inputElement = document.getElementById("input")
 const divElement = document.querySelector('.js-div')
@@ -11,7 +12,6 @@ const divElement = document.querySelector('.js-div')
 
 function addTodo(){
   const addInput = inputElement.value
-  
   const date = document.getElementById("date-input").value
 
   if (addInput.length && !date.length) return alert('Please, select a date');
@@ -29,17 +29,39 @@ function addTodo(){
     if (today > selectedDate){
       return alert('Date is passed, please select a Future date.');
     }
+
+    const newTodo = {name: addInput, date: date}
+    todos.push(newTodo);
+
+    localStorage.setItem('todos', JSON.stringify(todos))
+
+    renderTodos();
     
-    divElement.innerHTML += `<p class="js-par">
-    <span id="todo-name">${addInput}</span> <span class="due-date">${date}</span>
-    <button class="remove-but" onclick="removeTodo(this)" >Remove</button>
-    </p>
-    `
     inputElement.value = '';
   }
-
 }
 
-function removeTodo(button){
-  button.parentElement.remove();
+function renderTodos(){
+  divElement.innerHTML = ''
+  
+  for (let i=0; i<todos.length; i++){
+    const todo = todos[i]
+    divElement.innerHTML += `
+      <p class="js-par">
+      <span class="todo-name">${todo.name}</span>
+      <span class="due-date">${todo.date}</span>
+      <button class="remove-but" onclick="
+        removeTodo(${i});
+      ">Remove
+      </button>
+    </p>
+    `;
+  }
 }
+
+function removeTodo(index){
+  todos.splice(index, 1);
+  localStorage.setItem('todos', JSON.stringify(todos));
+  renderTodos();
+}
+renderTodos()

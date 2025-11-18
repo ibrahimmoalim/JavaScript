@@ -1,53 +1,45 @@
-function keyDown(){
-  if (event.key==='Enter'){
-    todoAdd()
+function onKeyDown(e){
+  if (e.key === 'Enter'){
+    addTodo()
   }
 }
 
 
-const todoList = [{
-  name:'',
-  dueDate:''
-}];
-
-displayTodoList()
-
-function displayTodoList(){
-  let todoListHTML='';
-
-  for(let i=0; i<todoList.length; i++){
-    const todoObject= todoList[i]
-    //const name= todoObject.name
-    //const dueDate= todoObject.dueDate
-    const {name,dueDate}= todoObject
-    const html = `<p>
-                    ${name} ${dueDate}
-                    <button onclick="
-                      todoList.splice(${i},1);
-                      displayTodoList()
-                    ">Delete</button>
-                  </p>`;
-    todoListHTML+= html; 
-  }
-
-  document.querySelector('.js-todo-list').innerHTML = todoListHTML;
-}
+const inputElement = document.getElementById("input")
+const divElement = document.querySelector('.js-div')
 
 
-function todoAdd(){
-  const inputElement= document.querySelector('.js-name-input');
-  const name = inputElement.value;
-
-  const dateInputElement= document.querySelector('.js-due-date');
-  const dueDate= dateInputElement.value;
-
-  todoList.push({
-    //name: name,
-    //dueDate: dueDate
-    name,
-    dueDate
-  });
+function addTodo(){
+  const addInput = inputElement.value
   
-  inputElement.value = ''
-  displayTodoList()
+  const date = document.getElementById("date-input").value
+
+  if (addInput.length && !date.length) return alert('Please, select a due-date');
+
+  // get today's date, ignore time
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  //turn date from string to date object
+  const selectedDate = new Date(date)
+  
+  
+  if (addInput.length){
+
+    if (today > selectedDate){
+      return alert('Date is passed, please select a Future date.');
+    }
+    
+    divElement.innerHTML += `<p class="js-par">
+    <span id="todo-name">${addInput}</span> <span class="due-date">${date}</span>
+    <button class="remove-but" onclick="removeTodo(this)" >Remove</button>
+    </p>
+    `
+    inputElement.value = '';
+  }
+
+}
+
+function removeTodo(button){
+  button.parentElement.remove();
 }

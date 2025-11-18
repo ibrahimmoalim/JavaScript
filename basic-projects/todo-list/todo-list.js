@@ -14,7 +14,7 @@ function addTodo(){
   
   const date = document.getElementById("date-input").value
 
-  if (addInput.length && !date.length) return alert('Please, select a due-date');
+  if (addInput.length && !date.length) return alert('Please, select a date');
 
   // get today's date, ignore time
   const today = new Date();

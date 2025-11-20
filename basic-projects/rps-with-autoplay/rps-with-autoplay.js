@@ -90,43 +90,61 @@ const displayComputerPicks = document.querySelector('.js-computer-picks')
 
 updateComputerScore()
 
+let isAutoPlaying = false;
+let intervalId;
+
 
 function autoPlay(){
 
-  let computerMove = pickComputerMove()
-  let computerTwoMove = pickComputerTwoMove()
+  if (!isAutoPlaying){
+    intervalId = setInterval(function(){
+    let computerMove = pickComputerMove()
+    let computerTwoMove = pickComputerTwoMove()
 
-  let computerResult = ''
+    let computerResult = ''
 
-  if (computerMove === computerTwoMove){
-    computerResult = 'Tie'
-    computer1Score.ties++
-    computer2Score.ties++
-  } else if (computerMove === 'rock' && computerTwoMove === 'paper'){
-    computerResult = 'Clanker2 wins'
-    computer2Score.wins++
-    computer1Score.losses++
-  } else if (computerMove === 'paper' && computerTwoMove === 'scissors'){
-    computerResult = 'Clanker2 wins'
-    computer2Score.wins++
-    computer1Score.losses++
-  } else if (computerMove === 'scissors' && computerTwoMove === 'rock'){
-    computerResult = 'Clanker2 wins'
-    computer2Score.wins++
-    computer1Score.losses++
-  } else {
-    computerResult = 'Clanker1 wins'
-    computer1Score.wins++
-    computer2Score.losses++
+    if (computerMove === computerTwoMove){
+      computerResult = 'Tie'
+      computer1Score.ties++
+      computer2Score.ties++
+    } else if (computerMove === 'rock' && computerTwoMove === 'paper'){
+      computerResult = 'Clanker2 wins'
+      computer2Score.wins++
+      computer1Score.losses++
+    } else if (computerMove === 'paper' && computerTwoMove === 'scissors'){
+      computerResult = 'Clanker2 wins'
+      computer2Score.wins++
+      computer1Score.losses++
+    } else if (computerMove === 'scissors' && computerTwoMove === 'rock'){
+      computerResult = 'Clanker2 wins'
+      computer2Score.wins++
+      computer1Score.losses++
+    } else {
+      computerResult = 'Clanker1 wins'
+      computer1Score.wins++
+      computer2Score.losses++
+    }
+
+    localStorage.setItem('computer1Score', JSON.stringify(computer1Score))
+    localStorage.setItem('computer2Score', JSON.stringify(computer2Score))
+
+    displayComputerPicks.innerHTML = `Clanker1 picked: <img class="images1" src="icons/${computerMove}-emoji.png">  Clanker2 picked: <img class="images1" src="icons/${computerTwoMove}-emoji.png">`
+
+    displayComputerResult.innerHTML = computerResult
+
+    updateComputerScore()
+
+    }, 1000);
+    
+    isAutoPlaying = true;
   }
+}
 
-  localStorage.setItem('computer1Score', JSON.stringify(computer1Score))
-  localStorage.setItem('computer2Score', JSON.stringify(computer2Score))
-
-  displayComputerPicks.innerHTML = `Clanker1 picked: <img class="images1" src="icons/${computerMove}-emoji.png">  Clanker2 picked: <img class="images1" src="icons/${computerTwoMove}-emoji.png">`
-
-  displayComputerResult.innerHTML = computerResult
-  updateComputerScore()
+function stopAutoPlay(){
+  displayComputerPicks.innerHTML = ''
+  displayComputerResult.innerHTML = ''
+  clearInterval(intervalId);
+  isAutoPlaying = false;
 }
 
 function updateComputerScore(){

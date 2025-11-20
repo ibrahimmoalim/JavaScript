@@ -28,9 +28,10 @@
     <br><br><br><br>
 
     <button onclick="
-    setInterval(function(){autoPlay()}, 1000);
+    autoPlay();
     updateComputerScore()
     " class="auto-play">AutoPlay (Clanker1 vs Clanker2)</button>
+    <button class="auto-play" onclick="stopAutoPlay()">Stop AutoPlay</button>
 
     <p class="js-picks js-computer-picks"></p>
 

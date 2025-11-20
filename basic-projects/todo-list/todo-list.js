@@ -44,19 +44,18 @@ function addTodo(){
 function renderTodos(){
   divElement.innerHTML = ''
   
-  for (let i=0; i<todos.length; i++){
-    const todo = todos[i]
+  todos.forEach(function(value, index){
     divElement.innerHTML += `
       <p class="js-par">
-      <span class="todo-name">${todo.name}</span>
-      <span class="due-date">${todo.date}</span>
+      <span class="todo-name">${value.name}</span>
+      <span class="due-date">${value.date}</span>
       <button class="remove-but" onclick="
-        removeTodo(${i});
+        removeTodo(${index});
       ">Remove
       </button>
     </p>
     `;
-  }
+  })
 }
 
 function removeTodo(index){

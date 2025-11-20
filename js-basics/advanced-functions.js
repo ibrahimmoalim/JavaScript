@@ -78,8 +78,8 @@
   'hi',
   'how are ya'
 ].forEach(function(value, index){
-  console.log(index)
-  console.log(value) // hello   hi   how are ya
+  //console.log(index)
+  //console.log(value) // hello   hi   how are ya
 });
 
 
@@ -94,6 +94,27 @@
     return; // skips 'hi', because function ends and next function goes on
   }
 
-  console.log(index)
-  console.log(value) // hello   hi   how are ya
+  //console.log(index)
+  //console.log(value) // hello   hi   how are ya
 });
+
+
+// arrow functions
+
+const arrowFunction = (param) => {
+  console.log('arrowFunction example');
+  console.log(param)
+}
+arrowFunction(6);
+
+const oneParam = param => {
+  console.log(param + 2)
+}
+oneParam(2) // 4
+
+const oneLine = () => 5-2;
+console.log(oneLine()) // 3
+
+const arr = [4,6,8,2,9,1,5]
+arr.sort((a, b) => a - b);
+console.log(arr)

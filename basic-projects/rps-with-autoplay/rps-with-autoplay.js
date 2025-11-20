@@ -153,4 +153,11 @@ function resetComputerScore(){
   displayComputerResult.innerHTML = ''
   localStorage.removeItem('computer2Score')
   localStorage.removeItem('computer1Score')
+  computer1Score.wins = 0
+  computer1Score.losses = 0
+  computer1Score.ties = 0
+  computer2Score.wins = 0
+  computer2Score.losses = 0
+  computer2Score.ties = 0
+  updateComputerScore()
 }

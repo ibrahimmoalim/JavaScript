@@ -28,9 +28,9 @@
     <br><br><br><br>
 
     <button onclick="
-    setInterval(autoPlay(), 2000);
+    setInterval(function(){autoPlay()}, 1000);
     updateComputerScore()
-    " class="auto-play">Auto Play (clanker1 vs clanker2)</button>
+    " class="auto-play">AutoPlay (Clanker1 vs Clanker2)</button>
 
     <p class="js-picks js-computer-picks"></p>
 
@@ -41,13 +41,7 @@
 
     <button class="reset-score" onclick="
     resetComputerScore()
-    computer1score.wins = 0
-    computer1score.losses = 0
-    computer1score.ties = 0
-    computer2score.wins = 0
-    computer2score.losses = 0
-    computer2score.ties = 0
-    updateComputerScore()
+    
     ">Reset Clanker Scores</button>
 
     <script src='rps-with-autoplay.js'></script>

@@ -7,18 +7,18 @@
   <body>
     <h1>Rock Paper Scissors</h1>
 
-    <button class="js-button"><img class="images" src="icons/Rock-emoji.png"></button>
-    <button class="js-button"><img class="images" src="icons/Paper-emoji.png"></button>
-    <button class="js-button"><img class="images" src="icons/Scissors-emoji.png"></button>
+    <button onclick="playGame('rock')" class="js-button"><img class="images" src="icons/rock-emoji.png"></button>
+    <button onclick="playGame('paper')" class="js-button"><img class="images" src="icons/paper-emoji.png"></button>
+    <button onclick="playGame('scissors')" class="js-button"><img class="images" src="icons/scissors-emoji.png"></button>
 
-    <p></p>
+    <p class="js-picks"></p>
 
-    <p></p>
+    <h2 class="js-result"></h2>
 
-    <p></p>
+    <p class="js-score"></p>
 
-    <button>Reset Score</button>
-    <button>Auto Play</button>
+    <button class="reset-score" onclick="resetScore()">Reset Score</button>
+    <button class="auto-play">Auto Play</button>
 
     <script src='rps-with-autoplay.js'></script>
   </body>

@@ -82,3 +82,18 @@
   console.log(value) // hello   hi   how are ya
 });
 
+
+// instead of continue with for loops, we could use below code
+// to skip a value in an array
+[
+  'hello',
+  'hi',
+  'how are ya'
+].forEach(function(value, index){
+  if (value === 'hi'){
+    return; // skips 'hi', because function ends and next function goes on
+  }
+
+  console.log(index)
+  console.log(value) // hello   hi   how are ya
+});

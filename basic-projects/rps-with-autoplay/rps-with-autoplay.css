@@ -3,18 +3,22 @@ body{
   color: white;
   font-family: Arial;
   margin: 0 0;
-  padding: 0 0;
+  padding: 0 20px;
 }
 
-button{
+button:hover{
   cursor: pointer;
+  opacity: 0.7;
+}
+button:active{
+  opacity: 0.5;
 }
 
 .js-button{
   width: 100px;
   height: 100px;
   background-color: black;
-  border: 3px solid white;
+  border: 2px solid white;
   border-radius: 50%;
 }
 
@@ -23,4 +27,18 @@ button{
   height: 50%;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.images1{
+  width: 40px;
+  height: 40px;
+}
+
+.reset-score, .auto-play{
+  font-weight: bold;
+  font-size: 16px;
+  background-color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
 }

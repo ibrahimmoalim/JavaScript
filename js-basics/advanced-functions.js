@@ -54,20 +54,31 @@
 // in the 2nd parameter we pass in time in milliseconds, which tells
 // it how long to wait before running the function
 // example: 
-setTimeout(function(){
-  console.log('time out test')
-  console.log('time out test2') // "time out test" (will be output after 5 seconds from runtime)
-}, 5000) // 5000 => 5 seconds
+// setTimeout(function(){
+//   console.log('time out test')
+//   console.log('time out test2') // "time out test" (will be output after 5 seconds from runtime)
+// }, 5000) // 5000 => 5 seconds
 
 // while the timer is counting 5 seconds, any code below it runs normally
 // and so below code will be output first
 // this is called "Asynchronous code"
-console.log('hi') // hi
+// console.log('hi') // hi
 
 
 
 // setInterval() is another built-in JS function thats like setTimeout()
 // except it loops
-setInterval(function(){
-  console.log('hi lads') // "hi lads" (every 3 seconds from runtime)
-}, 3000)
+// setInterval(function(){
+//   console.log('hi lads') // "hi lads" (every 3 seconds from runtime)
+// }, 3000)
+
+
+[
+  'hello',
+  'hi',
+  'how are ya'
+].forEach(function(value, index){
+  console.log(index)
+  console.log(value) // hello   hi   how are ya
+});
+

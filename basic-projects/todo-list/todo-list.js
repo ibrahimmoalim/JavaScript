@@ -44,7 +44,7 @@ function addTodo(){
 function renderTodos(){
   divElement.innerHTML = ''
   
-  todos.forEach(function(value, index){
+  todos.forEach((value, index) => {
     divElement.innerHTML += `
       <p class="js-par">
       <span class="todo-name">${value.name}</span>

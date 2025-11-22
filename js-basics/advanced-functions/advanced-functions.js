@@ -1,6 +1,21 @@
 // // Advanced Functions
 // // functions are just values and can be saved in variables
 
+
+const buttonElement = document.querySelector('.js-button')
+
+const eventListener = () => {
+  console.log('you clicked on the button, yippee!!!')
+}
+
+buttonElement.addEventListener('click', eventListener)
+buttonElement.removeEventListener('click', eventListener)
+
+buttonElement.addEventListener('click', () => {
+  console.log('you clicked on the button')
+});
+
+
 // const func = function greeting(){
 //   console.log('hello')
 // }
@@ -94,27 +109,55 @@
     return; // skips 'hi', because function ends and next function goes on
   }
 
-  //console.log(index)
-  //console.log(value) // hello   hi   how are ya
+  // console.log(index)
+  // console.log(value) // hello   hi   how are ya
 });
 
 
 // arrow functions
 
 const arrowFunction = (param) => {
-  console.log('arrowFunction example');
-  console.log(param)
+  // console.log('arrowFunction example');
+  // console.log(param)
 }
 arrowFunction(6);
 
 const oneParam = param => {
-  console.log(param + 2)
+  // console.log(param + 2)
 }
 oneParam(2) // 4
 
 const oneLine = () => 5-2;
-console.log(oneLine()) // 3
+// console.log(oneLine()) // 3
 
 const arr = [4,6,8,2,9,1,5]
 arr.sort((a, b) => a - b);
-console.log(arr)
+// console.log(arr);
+
+// .forEach with arrow functions (makes the code easier to read)
+[
+  'hello',
+  'hi',
+  'how are ya'
+].forEach((value, index) => {
+  if (value === 'hi'){
+    return; // skips 'hi', because function ends and next function goes on
+  }
+
+  // console.log(index)
+  // console.log(value) // hello   hi   how are ya
+});
+
+// arrow functions inside objects
+const object2 = {
+  // both below methods are same
+  method: () => {
+    return 'arrow function inside object example'
+  },
+  // short-hand method syntax (easier to read)
+  method1(){
+    return 'short-hand method example'
+  }
+};
+// console.log(object2.method()) // arrow function inside object example
+// console.log(object2.method1()) // short-hand method example

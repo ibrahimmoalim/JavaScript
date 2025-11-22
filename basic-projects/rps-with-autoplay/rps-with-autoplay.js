@@ -97,7 +97,7 @@ let intervalId;
 function autoPlay(){
 
   if (!isAutoPlaying){
-    intervalId = setInterval(function(){
+    intervalId = setInterval(() => {
     let computerMove = pickComputerMove()
     let computerTwoMove = pickComputerTwoMove()
 

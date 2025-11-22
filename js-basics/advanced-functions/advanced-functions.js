@@ -163,13 +163,14 @@ const object2 = {
 // console.log(object2.method()) // arrow function inside object example
 // console.log(object2.method1()) // short-hand method example
 
-// console.log([1, -3, 5].filter(value => {
-  //// if (value === -3){
-  ////   return false
-  //// } else return true;
-  // return value >= 0; // [1, 5]
-// }));
+console.log([1, -3, 5].filter(value => {
+  // if (value === -3){
+  //   return false
+  // } else return true;
+   return value >= 0; // [1, 5]
+}));
 
+// code below is same as code above
 console.log([1, -3, 5].filter(value => value >= 0)); // [1, 5]
 
 console.log([1, 1, 3].map(value => value * 2)); // [2, 2, 6]

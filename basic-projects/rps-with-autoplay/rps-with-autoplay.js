@@ -110,15 +110,21 @@ const displayComputerPicks = document.querySelector('.js-computer-picks')
 
 updateComputerScore()
 
-let isAutoPlaying = false;
-let intervalId;
 
 document.querySelector('.js-auto-play')
-  .addEventListener('click', () => {
-    autoPlay()
-    updateComputerScore()
-  });
+.addEventListener('click', () => {
+  autoPlay()
+  updateComputerScore()
+});
 
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'a'){
+    autoPlay()
+  }
+})
+
+let isAutoPlaying = false;
+let intervalId;
 
 function autoPlay(){
 

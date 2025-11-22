@@ -7,9 +7,9 @@
   <body>
     <h1>Rock Paper Scissors</h1>
 
-    <button onclick="playGame('rock')" class="js-button"><img class="images" src="icons/rock-emoji.png"></button>
-    <button onclick="playGame('paper')" class="js-button"><img class="images" src="icons/paper-emoji.png"></button>
-    <button onclick="playGame('scissors')" class="js-button"><img class="images" src="icons/scissors-emoji.png"></button>
+    <button class="js-button js-rock"><img class="images" src="icons/rock-emoji.png"></button>
+    <button class="js-button js-paper"><img class="images" src="icons/paper-emoji.png"></button>
+    <button class="js-button js-scissors"><img class="images" src="icons/scissors-emoji.png"></button>
 
     <p class="js-picks"></p>
 
@@ -17,21 +17,14 @@
 
     <p class="js-score"></p>
 
-    <button class="reset-score" onclick="
-    resetScore()
-    score.wins = 0
-    score.losses = 0
-    score.ties = 0
-    updateScore()
+    <button class="reset-score js-computer-scores" onclick="
+    
     ">Reset Score</button>
 
     <br><br><br><br>
 
-    <button onclick="
-    autoPlay();
-    updateComputerScore()
-    " class="auto-play">AutoPlay (Clanker1 vs Clanker2)</button>
-    <button class="auto-play" onclick="stopAutoPlay()">Stop AutoPlay</button>
+    <button class="auto-play js-auto-play">AutoPlay (Clanker1 vs Clanker2)</button>
+    <button class="auto-play js-stop-auto-play">Stop AutoPlay</button>
 
     <p class="js-picks js-computer-picks"></p>
 

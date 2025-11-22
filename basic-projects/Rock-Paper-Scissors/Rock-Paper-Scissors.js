@@ -16,6 +16,27 @@ if (!score){
 }
 */
 
+document.querySelector('.js-rock')
+	.addEventListener('click', () => playGame('Rock'));
+
+document.querySelector('.js-paper')
+	.addEventListener('click', () => playGame('Paper'));
+
+document.querySelector('.js-scissors')
+	.addEventListener('click', () => playGame('Scissors'));
+
+
+document.body.addEventListener('keydown', (event) => {
+	if (event.key === 'r'){
+		playGame('Rock')
+	} else if (event.key === 'p'){
+		playGame('Paper')
+	} else if (event.key === 's'){
+		playGame('Scissors')
+	}
+})
+
+
 function playGame(playerMove){
   const AiMove= pickAiMove();
 
@@ -75,20 +96,61 @@ function updateScore(){
   .innerHTML = `wins: ${score.wins}, losses: ${score.losses}, ties: ${score.ties}.`
 }
 
-function refresh(){
-  if (score={
-    wins: 0,
-    losses: 0,
-    ties: 0
-    }
-  ){
-    document.querySelector('.js-player-result')
-      .innerHTML = ''
-    
-    document.querySelector('.js-result')
-      .innerHTML = ''
-  }
-}
+document.body.addEventListener('keydown', (event) => {
+	if (event.key === 'Escape'){
+		document.querySelector('.js-confirmation')
+			.innerHTML = `
+				<span>Are you sure you want to <strong>reset</strong> the <strong>score</strong></span>
+				<button class="yes">Yes</button>
+				<button class="no">No</button>
+			`
+		document.querySelector('.yes')
+			.addEventListener('click', () => {
+				document.querySelector('.js-player-result')
+					.innerHTML = ''
+				document.querySelector('.js-result')
+					.innerHTML = ''
+				score.wins=0;
+				score.losses=0;
+				score.ties=0;
+				localStorage.removeItem('score');
+				updateScore();
+				document.querySelector('.js-confirmation')
+					.innerHTML = ''
+			})
+		
+		document.querySelector('.no')
+			.addEventListener('click', () => document.querySelector('.js-confirmation').innerHTML = '');
+	}
+});
+
+document.querySelector('.reset-score')
+	.addEventListener('click', () => {
+		document.querySelector('.js-confirmation')
+			.innerHTML = `
+				<span>Are you sure you want to <strong>reset</strong> the <strong>score</strong></span>
+				<button class="yes">Yes</button>
+				<button class="no">No</button>
+			`
+		document.querySelector('.yes')
+			.addEventListener('click', () => {
+				document.querySelector('.js-player-result')
+				.innerHTML = ''
+				document.querySelector('.js-result')
+					.innerHTML = ''
+				score.wins=0;
+				score.losses=0;
+				score.ties=0;
+				localStorage.removeItem('score');
+				updateScore();
+				document.querySelector('.js-confirmation')
+					.innerHTML = ''
+			})
+		
+		document.querySelector('.no')
+			.addEventListener('click', () => document.querySelector('.js-confirmation').innerHTML = '');
+	})
+
 
 function pickAiMove(){
   const randomNumber= Math.random();
@@ -105,3 +167,73 @@ function pickAiMove(){
   }
   return AiMove;
 }
+
+const autoplayButton = document.querySelector('.js-autoplay')
+
+autoplayButton.addEventListener('click', () => autoplay());
+autoplayButton.addEventListener('click', () => {
+	if (autoplayButton.innerHTML === 'AutoPlay'){
+		autoplayButton.innerHTML = 'Stop AutoPlay'
+	} else {
+		autoplayButton.innerHTML = 'AutoPlay'
+	}
+});
+
+document.body.addEventListener('keydown', (event) => {
+	if (event.key === 'a'){
+		autoplay()
+		if (autoplayButton.innerHTML === 'AutoPlay'){
+			autoplayButton.innerHTML = 'Stop AutoPlay'
+		} else {
+			autoplayButton.innerHTML = 'AutoPlay'
+		}
+	}
+});
+
+let isAutoPlaying = false;
+let intervalId;
+
+function autoplay(){
+	
+	if (!isAutoPlaying){
+		intervalId = setInterval(() => {
+			const computerTwoMove = pickAiMove()
+			const computerOneMove = pickAiMove()
+
+			let result = ''
+	
+			if (computerOneMove === computerTwoMove) {
+				result = 'Tie'
+				score.ties++
+			} else if (computerOneMove === 'Rock' && computerTwoMove === 'Paper') {
+				result = 'You win'
+				score.wins++
+			} else if (computerOneMove === 'Paper' && computerTwoMove === 'Scissors') {
+				result = 'You win'
+				score.wins++
+			} else if (computerOneMove === 'Scissors' && computerTwoMove === 'Rock') {
+				result = 'You win'
+				score.wins++
+			} else {
+				result = 'You lose'
+				score.losses++
+			}
+
+			document.querySelector('.js-player-result')
+				.innerHTML = result
+
+			document.querySelector('.js-result')
+				.innerHTML = `You picked: <img class="move-icon" src="icons/${computerOneMove}-emoji.png"> - Computer picked: <img class="move-icon" src="icons/${computerTwoMove}-emoji.png">`
+
+		}, 1000);
+		isAutoPlaying = true;
+	} else {
+		document.querySelector('.js-player-result')
+			.innerHTML = ''
+		document.querySelector('.js-result')
+			.innerHTML = ''
+		clearInterval(intervalId);
+		isAutoPlaying = false;
+	}
+};
+

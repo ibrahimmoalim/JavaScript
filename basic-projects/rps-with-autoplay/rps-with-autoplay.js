@@ -12,6 +12,16 @@ const displayPicks = document.querySelector('.js-picks')
 
 updateScore()
 
+document.querySelector('.js-rock')
+  .addEventListener('click', () => playGame('rock'))
+
+document.querySelector('.js-paper')
+  .addEventListener('click', () => playGame('paper'))
+
+document.querySelector('.js-scissors')
+  .addEventListener('click', () => playGame('scissors'))
+
+
 function playGame(playerMove){
 
   let computerMove = pickComputerMove()
@@ -93,6 +103,12 @@ updateComputerScore()
 let isAutoPlaying = false;
 let intervalId;
 
+document.querySelector('.js-auto-play')
+  .addEventListener('click', () => {
+    autoPlay()
+    updateComputerScore()
+  });
+
 
 function autoPlay(){
 
@@ -140,6 +156,11 @@ function autoPlay(){
   }
 }
 
+document.querySelector('.js-stop-auto-play')
+  .addEventListener('click', () => {
+    stopAutoPlay()
+  });
+
 function stopAutoPlay(){
   displayComputerPicks.innerHTML = ''
   displayComputerResult.innerHTML = ''
@@ -165,6 +186,15 @@ function pickComputerTwoMove(){
 
   return computerTwoMove;
 }
+
+document.querySelector('.js-computer-scores')
+  .addEventListener('click', () => {
+    resetScore()
+    score.wins = 0
+    score.losses = 0
+    score.ties = 0
+    updateScore()
+  });
 
 function resetComputerScore(){
   displayComputerPicks.innerHTML = ''

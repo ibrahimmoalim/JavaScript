@@ -9,6 +9,9 @@ let todos = JSON.parse(localStorage.getItem('todos')) || []
 const inputElement = document.getElementById("input")
 const divElement = document.querySelector('.js-div')
 
+document.querySelector('.js-add-button')
+  .addEventListener('click', () => addTodo());
+
 
 function addTodo(){
   const addInput = inputElement.value

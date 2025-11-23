@@ -637,5 +637,21 @@ const products = [
       "apparel",
       "mens"
     ]
+  },
+  {
+    id: "bc2847e9-5323-403f-b7cf-57fde044a956",
+    image: "images/products/swimming-goggles.jpg",
+    name: "Swimming Goggles | Patented Easy Adjustment | Anti-fog | Anti-leak | Enhanced Fit",
+    rating: {
+      stars: 4.5,
+      count: 12303
+    },
+    priceCents: 1335,
+    keywords: [
+      "swimming",
+      "goggles",
+      "mens",
+      "womens"
+    ]
   }
 ];

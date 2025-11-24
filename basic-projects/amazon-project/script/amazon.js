@@ -62,55 +62,65 @@ products.forEach((product) => {
 document.querySelector('.js-products-grid')
   .innerHTML = productsHTML;
 
+function addToCart(productId){
+  const selectQuant = document.querySelector(`.js-select-quant-${productId}`)
+  const quantity = Number(selectQuant.value)
+
+  let matchingItem;
+
+  cart.forEach((item) => {
+    if (productId === item.productId) {
+      matchingItem = item;
+    }
+  });
+  
+  if (matchingItem) {
+    matchingItem.quantity += quantity;
+  } else {
+    cart.push({
+      productId,
+      quantity
+    });
+  };
+};
+
+function updateCartQuantity(){
+  let cartQunatity = 0;
+
+  const cartNum = document.querySelector('.js-cart-quantity')
+
+  cart.forEach((item) => {
+    cartQunatity += Number(item.quantity);
+  })
+  cartNum.innerHTML = cartQunatity;
+};
+
+function displayAddedMsg(productId){
+
+  const addedMsgElement = document.querySelector(`.js-added-to-cart-${productId}`);
+  addedMsgElement.classList.add('js-added');
+      
+  // Clear previous timeout if it exists
+  if (addedMsgElement.dataset.timeoutId){
+    clearTimeout(addedMsgElement.dataset.timeoutId)
+  };
+
+  // Set a new timeout and store its ID in the element's dataset
+  const tempTimeoutId = setTimeout(() => {
+    addedMsgElement.classList.remove('js-added');
+    delete addedMsgElement.dataset.timeoutId; // ensures you don’t leak memory for old timeouts.
+  }, 1000);
+  addedMsgElement.dataset.timeoutId = tempTimeoutId;
+};
+
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
-
-    let addedMsgTimeout;
-    
     button.addEventListener('click', () => {
       const {productId} = button.dataset;
-
       
-      const selecQuant = document.querySelector(`.js-select-quant-${productId}`)
-      const quantity = Number(selecQuant.value)
-      
-      let matchingItem;
-
-      cart.forEach((item) => {
-        if (productId === item.productId) {
-          matchingItem = item;
-        }
-      });
-      
-      if (matchingItem) {
-        matchingItem.quantity += quantity;
-      } else {
-        cart.push({
-          productId,
-          quantity
-        });
-      }
-
-      let cartQunatity = 0;
-
-      const cartNum = document.querySelector('.js-cart-quantity')
-
-      cart.forEach((item) => {
-        cartQunatity += Number(item.quantity);
-      })
-      cartNum.innerHTML = cartQunatity;
-
-
-      document.querySelector(`.js-added-to-cart-${productId}`).classList.add('js-added');
-      
-      if (addedMsgTimeout){
-        clearTimeout(addedMsgTimeout)
-      }
-
-      const timeoutId = setTimeout(() => {
-        document.querySelector(`.js-added-to-cart-${productId}`).classList.remove('js-added');
-      }, 1000);
-      addedMsgTimeout = timeoutId;
+      addToCart(productId);
+      updateCartQuantity();
+      displayAddedMsg(productId);
 
     });
   });

@@ -2,6 +2,7 @@
 // created with a compination of objects and arrays
 
 import {cart} from '../data/cart.js';
+import {products} from '../data/products.js'
 
 let productsHTML = '';
 

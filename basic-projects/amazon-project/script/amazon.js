@@ -1,7 +1,7 @@
 // data structure
 // created with a compination of objects and arrays
 
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import {products} from '../data/products.js'
 
 let productsHTML = '';
@@ -62,37 +62,16 @@ products.forEach((product) => {
 document.querySelector('.js-products-grid')
   .innerHTML = productsHTML;
 
-function addToCart(productId){
-  const selectQuant = document.querySelector(`.js-select-quant-${productId}`)
-  const quantity = Number(selectQuant.value)
-
-  let matchingItem;
-
-  cart.forEach((item) => {
-    if (productId === item.productId) {
-      matchingItem = item;
-    }
-  });
-  
-  if (matchingItem) {
-    matchingItem.quantity += quantity;
-  } else {
-    cart.push({
-      productId,
-      quantity
-    });
-  };
-};
 
 function updateCartQuantity(){
-  let cartQunatity = 0;
+  let cartQuantity = 0;
 
   const cartNum = document.querySelector('.js-cart-quantity')
 
-  cart.forEach((item) => {
-    cartQunatity += Number(item.quantity);
+  cart.forEach((cartItem) => {
+    cartQuantity += Number(cartItem.quantity);
   })
-  cartNum.innerHTML = cartQunatity;
+  cartNum.innerHTML = cartQuantity;
 };
 
 function displayAddedMsg(productId){

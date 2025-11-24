@@ -1,6 +1,8 @@
 // data structure
 // created with a compination of objects and arrays
 
+import {cart} from '../data/cart.js';
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -106,7 +108,7 @@ document.querySelectorAll('.js-add-to-cart')
 
       const timeoutId = setTimeout(() => {
         document.querySelector(`.js-added-to-cart-${productId}`).classList.remove('js-added');
-      }, 2000);
+      }, 1000);
       addedMsgTimeout = timeoutId;
 
     });

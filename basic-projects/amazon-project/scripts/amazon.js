@@ -1,7 +1,7 @@
 // data structure
 // created with a compination of objects and arrays
 
-import {cart, addToCart} from '../data/cart.js';
+import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js'
 import { formatCurrency } from './utils/price.js';
 
@@ -66,14 +66,8 @@ document.querySelector('.js-products-grid')
 updateCartQuantity();
 
 function updateCartQuantity(){
-  let cartQuantity = 0;
-
-  const cartNum = document.querySelector('.js-cart-quantity')
-
-  cart.forEach((cartItem) => {
-    cartQuantity += Number(cartItem.quantity);
-  })
-  cartNum.innerHTML = cartQuantity;
+  const cartNum = document.querySelector('.js-cart-quantity');
+  cartNum.innerHTML = calculateCartQuantity();
 };
 
 function displayAddedMsg(productId){

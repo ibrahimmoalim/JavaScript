@@ -1,10 +1,9 @@
-import {cart, removeFromCart} from '../data/cart.js'
+import {cart, removeFromCart, calculateCartQuantity} from '../data/cart.js'
 import {products} from '../data/products.js'
 import { formatCurrency } from './utils/price.js';
 
-let cartSummeryHTML = ''
 
-
+let cartSummaryHTML = ''
 
 cart.forEach((cartItem) => {
   // get productId out of cartItem
@@ -20,7 +19,7 @@ cart.forEach((cartItem) => {
   });
 
 
-  cartSummeryHTML += `
+  cartSummaryHTML += `
     <div class="cart-item-container js-cart-item-${matchingProduct.id}">
       <div class="delivery-date">
         Delivery date: Wednesday, June 15
@@ -41,9 +40,11 @@ cart.forEach((cartItem) => {
             <span>
               Quantity: <span class="quantity-label">${cartItem.quantity}</span>
             </span>
-            <span class="update-quantity-link link-primary">
+            <span class="update-quantity-link link-primary js-link-primary js-update-button" data-item-id="${matchingProduct.id}">
               Update
             </span>
+            <input class="input-quantity">
+            <span class="save-quantity link-primary"> Save </span>
             <span class="delete-quantity-link link-primary js-delete-button" data-item-id="${matchingProduct.id}">
               Delete
             </span>
@@ -97,8 +98,9 @@ cart.forEach((cartItem) => {
   `
 });
 
-document.querySelector('.js-order-summery')
-  .innerHTML = cartSummeryHTML;
+document.querySelector('.js-order-summary')
+  .innerHTML = cartSummaryHTML;
+
 
 
 document.querySelectorAll('.js-delete-button')
@@ -109,5 +111,27 @@ document.querySelectorAll('.js-delete-button')
 
       const container = document.querySelector(`.js-cart-item-${itemId}`)
         container.remove();
+        updateCartQunatity();
     })
   });
+
+
+function updateCartQunatity(){
+  
+  const checkoutHeader = document.querySelector('.js-return-to-home-link')
+  checkoutHeader.innerHTML = `${calculateCartQuantity()} items`;
+};
+updateCartQunatity();
+
+
+document.querySelectorAll(`.js-update-button`)
+  .forEach((button) => {
+    button.addEventListener('click', () => {
+      const {itemId} = button.dataset;
+
+      const container = document.querySelector(`.js-cart-item-${itemId}`)
+        .classList.add('is-editing-quantity')
+
+      
+    })
+  })

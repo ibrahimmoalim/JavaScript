@@ -1,6 +1,7 @@
 import {cart, removeFromCart, calculateCartQuantity, updateQuantityLabel} from '../data/cart.js'
 import {products} from '../data/products.js'
-import { formatCurrency } from './utils/price.js';
+import formatCurrency from './utils/price.js';
+import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs/+esm'
 
 
 let cartSummaryHTML = ''
@@ -64,7 +65,7 @@ cart.forEach((cartItem) => {
               name="delivery-option-${matchingProduct.id}">
             <div>
               <div class="delivery-option-date">
-                Tuesday, June 21
+                ${dayjs().add(7, 'days').format('dddd, MMMM D')}
               </div>
               <div class="delivery-option-price">
                 FREE Shipping
@@ -76,19 +77,19 @@ cart.forEach((cartItem) => {
               name="delivery-option-${matchingProduct.id}">
             <div>
               <div class="delivery-option-date">
-                Wednesday, June 15
+                ${dayjs().add(3, 'days').format('dddd, MMMM D')}
               </div>
               <div class="delivery-option-price">
                 $4.99 - Shipping
               </div>
             </div>
           </div>
-          <div class="delivery-option">
+          <div class="delivery-option js-delivery-option">
             <input type="radio" class="delivery-option-input"
               name="delivery-option-${matchingProduct.id}">
             <div>
               <div class="delivery-option-date">
-                Monday, June 13
+                ${dayjs().add(1, 'days').format('dddd, MMMM D')}
               </div>
               <div class="delivery-option-price">
                 $9.99 - Shipping
@@ -172,3 +173,9 @@ document.querySelectorAll('.js-save-link')
       
     })
   });
+
+
+document.querySelectorAll('.delivery-option-input')
+  .forEach((input) => {
+    input
+  })

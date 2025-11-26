@@ -3,7 +3,7 @@
 
 import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js'
-import { formatCurrency } from './utils/price.js';
+import formatCurrency from './utils/price.js';
 
 let productsHTML = '';
 

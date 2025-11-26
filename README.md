@@ -9,11 +9,12 @@ for Problem Solving:
 [*JavaScript Algorithms and Data Structures*](https://www.youtube.com/playlist?list=PLC3y8-rFHvwjPxNAKvZpdnsr41E0fCMMP)
 
 
-## **View projects below**
+## **View projects below**##
 
 ---
 [Rock Paper Scissors](https://ibrahimmoalim.github.io/JavaScript/basic-projects/rock-paper-scissors/)  
-[Rock Paper Scissors with *bot* vs *bot* Gamemode](https://ibrahimmoalim.github.io/JavaScript/basic-projects/rock-paper-scissors/)
+
+[Rock Paper Scissors with *bot* vs *bot* Gamemode](https://ibrahimmoalim.github.io/JavaScript/basic-projects/rps-with-bot-battles/)
 ---
 
 ---

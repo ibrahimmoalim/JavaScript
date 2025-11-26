@@ -56,3 +56,11 @@ button:hover {
 button:active {
   opacity: 0.6;
 }
+
+.note {
+  margin: 0 0;
+}
+.note2 {
+  margin-top: 10px;
+  margin-bottom: 45px;
+}

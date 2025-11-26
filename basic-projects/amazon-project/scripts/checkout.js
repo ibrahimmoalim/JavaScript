@@ -1,4 +1,4 @@
-import {cart, removeFromCart, calculateCartQuantity} from '../data/cart.js'
+import {cart, removeFromCart, calculateCartQuantity, updateQuantityLabel} from '../data/cart.js'
 import {products} from '../data/products.js'
 import { formatCurrency } from './utils/price.js';
 
@@ -38,13 +38,16 @@ cart.forEach((cartItem) => {
           </div>
           <div class="product-quantity">
             <span>
-              Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+              Quantity: <span class="quantity-label js-quantity-label-${matchingProduct.id}">
+              ${cartItem.quantity}</span>
             </span>
             <span class="update-quantity-link link-primary js-link-primary js-update-button" data-item-id="${matchingProduct.id}">
               Update
             </span>
-            <input class="input-quantity">
-            <span class="save-quantity link-primary"> Save </span>
+            <input class="input-quantity js-input-quantity-${matchingProduct.id}" 
+            type="number" min="1">
+            <span class="save-quantity link-primary js-save-link" data-item-id="${matchingProduct.id}">
+             Save </span>
             <span class="delete-quantity-link link-primary js-delete-button" data-item-id="${matchingProduct.id}">
               Delete
             </span>
@@ -130,8 +133,42 @@ document.querySelectorAll(`.js-update-button`)
       const {itemId} = button.dataset;
 
       const container = document.querySelector(`.js-cart-item-${itemId}`)
-        .classList.add('is-editing-quantity')
 
+      container.classList.add('is-editing-quantity');
+
+      const input = document.querySelector(`.js-input-quantity-${itemId}`)
+      input.select();
+      input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter'){
+          saveUpdatedQuantity(itemId);
+        }
+      })
+    })
+  });
+
+
+function saveUpdatedQuantity(itemId){
+  const container = document.querySelector(`.js-cart-item-${itemId}`);
+  container.classList.remove('is-editing-quantity');
+
+
+  const quantityInput = document.querySelector(`.js-input-quantity-${itemId}`)
+
+  const newQuantity = Number(quantityInput.value);
+
+  updateQuantityLabel(newQuantity, itemId);
+  updateCartQunatity();
+  
+  quantityInput.value = null;
+};
+
+
+document.querySelectorAll('.js-save-link')
+  .forEach((link) => {
+    const {itemId} = link.dataset;
+    link.addEventListener('click', () => {
+
+      saveUpdatedQuantity(itemId);
       
     })
-  })
+  });

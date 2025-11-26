@@ -211,7 +211,7 @@
 }
 
 .input-quantity {
-  width: 30px;
+  width: 45px;
 }
 
 .save-quantity, .input-quantity {
@@ -222,5 +222,12 @@
   .save-quantity,
   .input-quantity {
     display: initial;
+  }
+}
+
+.is-editing-quantity {
+  .js-link-primary,
+  .quantity-label {
+    display: none;
   }
 }

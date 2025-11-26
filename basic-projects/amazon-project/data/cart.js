@@ -1,3 +1,4 @@
+// named export, used when there are multiple exports in the file
 export let cart = JSON.parse(localStorage.getItem('cart'));
 
 if (!cart){

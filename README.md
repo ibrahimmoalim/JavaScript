@@ -1,8 +1,8 @@
 **Disclaimer concerning the amazon project inside this repo:**  
 
->This project is a personal educational clone created for HTML/CSS/JavaScript practice.
-It is not affiliated with, endorsed by, or sponsored by Amazon.
-All trademarks and brand assets belong to their respective owners.
+>This project is a front-end practice clone created for educational purposes only.
+It is not affiliated with, endorsed by, or sponsored by Amazon.com, Inc.
+All trademarks, brand names, and logos belong to their respective owners.
 
 
 Learning from **YouTube**:  

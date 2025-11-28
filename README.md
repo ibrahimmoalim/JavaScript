@@ -1,8 +1,10 @@
-**Disclaimer concerning the amazon project inside this repo:**  
+**Disclaimer concerning the Amazon project inside this repo:**  
 
 >This project is a front-end practice clone created for educational purposes only.
 It is not affiliated with, endorsed by, or sponsored by Amazon.com, Inc.
 All trademarks, brand names, and logos belong to their respective owners.
+
+>This project is strictly non-commercial and created only for learning purposes.
 
 
 Learning from **YouTube**:  

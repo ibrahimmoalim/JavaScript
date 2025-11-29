@@ -178,9 +178,7 @@ export function renderOrderSummary(){
     .forEach((link) => {
       const {itemId} = link.dataset;
       link.addEventListener('click', () => {
-
         saveUpdatedQuantity(itemId);
-        
       })
     });
 

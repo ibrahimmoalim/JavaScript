@@ -1,8 +1,7 @@
-import {cart, removeFromCart, calculateCartQuantity, updateQuantityLabel} from '../data/cart.js'
+import {cart, removeFromCart, calculateCartQuantity, updateQuantityLabel, updateDeliveryOption} from '../data/cart.js'
 import {products} from '../data/products.js'
 import formatCurrency from './utils/price.js';
 import deliveryOptions from '../data/delivery-options.js';
-import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs/+esm';
 
 
 
@@ -182,3 +181,11 @@ document.querySelectorAll('.js-save-link')
       
     })
   });
+
+document.querySelectorAll('.js-delivery-option')
+  .forEach((element) => {
+      element.addEventListener('click', () => {
+        const {productId, deliveryOptionId} = element.dataset;
+          updateDeliveryOption(productId, deliveryOptionId);
+        })
+    });

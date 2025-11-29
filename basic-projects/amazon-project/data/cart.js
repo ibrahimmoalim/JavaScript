@@ -1,22 +1,12 @@
+import deliveryOptions from '../data/delivery-options.js';
+
 // named export, used when there are multiple exports in the file
-export let cart = JSON.parse(localStorage.getItem('cart'));
-
-if (!cart){
-  cart = [{
-  productId: '83d4ca15-0f35-48f5-b7a3-1ea210004f2e',
-  quantity: 2
-},
-{
-  productId: '54e0eccd-8f36-462b-b68a-8182611d9add',
-  quantity: 4
-}];
-}
-
+export let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 
 function saveToStorage(){
   localStorage.setItem('cart', JSON.stringify(cart))
-}
+};
 
 export function addToCart(productId){
   const selectQuant = document.querySelector(`.js-select-quant-${productId}`)
@@ -35,7 +25,8 @@ export function addToCart(productId){
   } else {
     cart.push({
       productId,
-      quantity
+      quantity,
+      deliveryOptionId: deliveryOptions[0].id
     });
   };
 

@@ -1,6 +1,6 @@
 import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs/+esm';
 
-const deliveryOptions = [{
+export const deliveryOptions = [{
   id: '1',
   date: dayjs().add(7, 'days').format('dddd, MMMM D'),
   priceCents: 0 
@@ -16,4 +16,13 @@ const deliveryOptions = [{
   priceCents: 999
 }];
 
-export default deliveryOptions;
+export function getDeliveryOption(deliveryOptionId){
+  let deliveryOption;
+
+    deliveryOptions.forEach((option) => {
+      if (option.id === deliveryOptionId){
+        deliveryOption = option
+      }
+    });
+  return deliveryOption || deliveryOptions[0];
+}

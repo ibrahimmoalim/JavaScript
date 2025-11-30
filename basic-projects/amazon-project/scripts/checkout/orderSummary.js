@@ -1,7 +1,8 @@
 import {cart, removeFromCart, calculateCartQuantity, updateQuantityLabel, updateDeliveryOption} from '../../data/cart.js'
-import {products} from '../../data/products.js'
+import {getProduct} from '../../data/products.js'
 import formatCurrency from '../utils/price.js';
-import deliveryOptions from '../../data/delivery-options.js';
+import {deliveryOptions, getDeliveryOption} from '../../data/delivery-options.js';
+import { renderPaymentSummary } from './payment-summary.js';
 
 
 
@@ -13,26 +14,13 @@ export function renderOrderSummary(){
     // get productId out of cartItem
     const {productId} = cartItem;
 
-    let matchingProduct;
-    // get the full product just using id
-    products.forEach((product) => {
-      if (product.id === productId){
-        matchingProduct = product;
-      }
-    });
+    const matchingProduct = getProduct(productId);
+    
 
     const deliveryOptionId = cartItem.deliveryOptionId;
 
-    let deliveryOption;
-
-    deliveryOptions.forEach((option) => {
-      if (option.id === deliveryOptionId){
-        deliveryOption = option
-      }
-    });
-
-
-
+    const deliveryOption = getDeliveryOption(deliveryOptionId);
+    
 
     cartSummaryHTML += `
       <div class="cart-item-container js-cart-item-${matchingProduct.id}">
@@ -169,7 +157,7 @@ export function renderOrderSummary(){
 
     updateQuantityLabel(newQuantity, itemId);
     updateCartQuantity();
-    
+    renderPaymentSummary();
     quantityInput.value = null;
   };
 
@@ -189,6 +177,7 @@ export function renderOrderSummary(){
             updateDeliveryOption(productId, deliveryOptionId);
             // regenerate the whole page, to update delivery data automatically when delivery option is selected
             renderOrderSummary();
+            renderPaymentSummary();
           })
       });
 };

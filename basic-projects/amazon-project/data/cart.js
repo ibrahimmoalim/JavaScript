@@ -1,4 +1,5 @@
-import deliveryOptions from '../data/delivery-options.js';
+import {deliveryOptions} from '../data/delivery-options.js';
+import { renderPaymentSummary } from '../scripts/checkout/payment-summary.js';
 
 // named export, used when there are multiple exports in the file
 export let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -44,6 +45,7 @@ export function removeFromCart(itemId){
   });
   cart = newCart;
   saveToStorage();
+  renderPaymentSummary();
 };
 
 

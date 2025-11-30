@@ -24,8 +24,8 @@ console.log(addNum([-2,-1,0,99], 2)) // [0, 1, 2, 101]
 function removeEggs(foods){
   let eggsToRemove = 0;
 
-  return foods.filter(value => {
-    if (value === 'egg' && eggsToRemove < 2){
+  return foods.filter(food => {
+    if (food === 'egg' && eggsToRemove < 2){
       eggsToRemove++
       return false
     } else return true;

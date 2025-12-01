@@ -1,18 +1,37 @@
 import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs/+esm';
 
+
+function correctDate(day){
+
+  const dayName = day.format('dddd')
+
+  if (dayName === 'Sunday'){
+    day = day.add(1, 'days')
+  }
+
+  if (dayName === 'Saturday'){
+    day = day.add(2, 'days')
+  }
+
+  // Format only once at the end.
+  // Calling .format() earlier would convert `day` to a string
+  // and break future Dayjs operations like .add()
+  return day.format('dddd, MMMM D')
+}
+
 export const deliveryOptions = [{
   id: '1',
-  date: dayjs().add(7, 'days').format('dddd, MMMM D'),
+  date: correctDate(dayjs().add(7, 'days')),
   priceCents: 0 
 },
 {
   id: '2',
-  date: dayjs().add(3, 'days').format('dddd, MMMM D'),
+  date: correctDate(dayjs().add(3, 'days')),
   priceCents: 499
 },
 {
   id: '3',
-  date: dayjs().add(1, 'days').format('dddd, MMMM D'),
+  date: correctDate(dayjs().add(1, 'days')),
   priceCents: 999
 }];
 

@@ -22,6 +22,14 @@ if (formatCurrency(0) === '0.00') {
 };
 
 
+console.log('works with negative numbers')
+if (formatCurrency(-3546) === '-35.46') {
+  console.log('passed')
+} else {
+  console.log('failed')
+};
+
+
 console.log('rounds number before converting to dollars')
 if (formatCurrency(2000.5) === '20.01') {
   console.log('passed')

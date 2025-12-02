@@ -10,10 +10,12 @@ class Cart {
     // and then doing "this.key = (something)"
     // you can just do "this.key" and it's the same
     this.key = localStorageKey;
-    this.loadFromStorage();
+    this.#loadFromStorage();
   }
 
-  loadFromStorage(){
+  // make method private with "#" so it can't be accessed and changed outside the class
+  // use "#" infront of method to access it inside the class e.g this.#loadFromStorage();
+  #loadFromStorage(){
     this.cartItems = JSON.parse(localStorage.getItem(this.key));
 
     if (!this.cartItems) {

@@ -1,3 +1,6 @@
+import formatCurrency from "../scripts/utils/price.js";
+
+
 export function getProduct(productId){
 
   let matchingProduct;
@@ -10,8 +13,31 @@ export function getProduct(productId){
   return matchingProduct;
 }
 
-// data structure
-// created with a compination of objects and arrays
+class Product {
+  id;
+  image;
+  name;
+  rating;
+  priceCents;
+
+  constructor (productDetails) {
+    this.id = productDetails.id;
+    this.image = productDetails.image;
+    this.name = productDetails.name;
+    this.rating = productDetails.rating;
+    this.priceCents = productDetails.priceCents;
+  }
+
+  getStarsUrl() {
+    return `images/ratings/rating-${this.rating.stars * 10}.png`;
+  }
+
+  getPrice() {
+    return `$${formatCurrency(this.priceCents)}`;
+  }
+}
+
+// .map() runs a function on each item in the array and returns a new array
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -65,7 +91,7 @@ export const products = [
     name: "2 Slot Toaster - Black",
     rating: {
       stars: 5,
-      count: 2197
+      count: '2,197'
     },
     priceCents: 1899,
     keywords: [
@@ -294,7 +320,7 @@ export const products = [
     name: "Women's Stretch Popover Hoodie",
     rating: {
       stars: 4.5,
-      count: 2465
+      count: '2,465'
     },
     priceCents: 1374,
     keywords: [
@@ -344,7 +370,7 @@ export const products = [
     name: "Men's Regular-Fit Quick-Dry Golf Polo Shirt",
     rating: {
       stars: 4.5,
-      count: 2556
+      count: '2,556'
     },
     priceCents: 1599,
     keywords: [
@@ -362,7 +388,7 @@ export const products = [
     name: "Trash Can with Foot Pedal - Brushed Stainless Steel",
     rating: {
       stars: 4.5,
-      count: 2286
+      count: '2,286'
     },
     priceCents: 8300,
     keywords: [
@@ -413,7 +439,7 @@ export const products = [
     name: "Men's Classic-fit Pleated Chino Pants",
     rating: {
       stars: 4.5,
-      count: 9017
+      count: '9,017'
     },
     priceCents: 2290,
     keywords: [
@@ -536,7 +562,7 @@ export const products = [
     name: "Coffeemaker with Glass Carafe and Reusable Filter - 25 Oz, Black",
     rating: {
       stars: 4.5,
-      count: 1211
+      count: '1,211'
     },
     priceCents: 2250,
     keywords: [
@@ -627,7 +653,7 @@ export const products = [
     name: "2-Ply Kitchen Paper Towels - 30 Pack",
     rating: {
       stars: 4.5,
-      count: 1045
+      count: '1,045'
     },
     priceCents: 5799,
     keywords: [
@@ -642,7 +668,7 @@ export const products = [
     name: "Men's Full-Zip Hooded Fleece Sweatshirt",
     rating: {
       stars: 4.5,
-      count: 3157
+      count: '3,157'
     },
     priceCents: 2400,
     keywords: [
@@ -658,7 +684,7 @@ export const products = [
     name: "Swimming Goggles | Patented Easy Adjustment | Anti-fog | Anti-leak | Enhanced Fit",
     rating: {
       stars: 4.5,
-      count: 12303
+      count: '12,303'
     },
     priceCents: 1335,
     keywords: [
@@ -668,4 +694,6 @@ export const products = [
       "womens"
     ]
   }
-];
+].map((product) => {
+  return new Product(product)
+});

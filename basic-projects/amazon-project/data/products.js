@@ -35,7 +35,28 @@ class Product {
   getPrice() {
     return `$${formatCurrency(this.priceCents)}`;
   }
-}
+
+  extraInfoHTML () {
+    return '';
+  }
+};
+
+export class Clothing extends Product {
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails);
+    this.sizeChartLink = productDetails.sizeChartLink;
+  }
+
+  extraInfoHTML () {
+    return `
+      <a href="${this.sizeChartLink}" target="_blank">
+        Size chart
+      </a>
+    `;
+  }
+};
 
 // .map() runs a function on each item in the array and returns a new array
 export const products = [
@@ -676,7 +697,9 @@ export const products = [
       "hoodies",
       "apparel",
       "mens"
-    ]
+    ],
+    type: "clothing",
+    sizeChartLink: "images/clothing-size-chart.png"
   },
   {
     id: "bc2847e9-5323-403f-b7cf-57fde044a956",
@@ -695,5 +718,8 @@ export const products = [
     ]
   }
 ].map((product) => {
-  return new Product(product)
+  if (product.type === 'clothing') {
+    return new Clothing(product);
+  }
+  return new Product(product);
 });

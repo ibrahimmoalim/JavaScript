@@ -1,3 +1,6 @@
+import { renderPaymentSummary } from "../scripts/checkout/payment-summary.js";
+import { deliveryOptions } from "./delivery-options.js";
+
 // OOP classes
 // make a class
 class Cart {
@@ -16,20 +19,7 @@ class Cart {
   // make method private with "#" so it can't be accessed and changed outside the class
   // use "#" infront of method to access it inside the class e.g this.#loadFromStorage();
   #loadFromStorage(){
-    this.cartItems = JSON.parse(localStorage.getItem(this.key));
-
-    if (!this.cartItems) {
-      this.cartItems = [{
-        productId: 'sfs',
-        quantity: 2,
-        deliveryOptionId: '1'
-      },
-      {
-        productId: 'sfsh',
-        quantity: 1,
-        deliveryOptionId: '2'
-      }]
-    }
+    this.cartItems = JSON.parse(localStorage.getItem(this.key)) || []
   }
 
   saveToStorage(){
@@ -54,7 +44,7 @@ class Cart {
       this.cartItems.push({
         productId,
         quantity,
-        deliveryOptionId: '1'
+        deliveryOptionId: deliveryOptions[0].id
       });
     }
     this.saveToStorage();
@@ -109,11 +99,5 @@ class Cart {
 
 
 // generate objects with declared class
-const cart = new Cart('cartItems');
+export const cart = new Cart('cartItems');
 const businessCart = new Cart('cart-business');
-
-
-console.log(cart)
-console.log(businessCart)
-
-console.log(cart instanceof Cart) // true

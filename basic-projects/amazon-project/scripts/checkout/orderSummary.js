@@ -1,4 +1,4 @@
-import {cart, removeFromCart, calculateCartQuantity, updateQuantityLabel, updateDeliveryOption} from '../../data/cart.js'
+import {cart} from '../../data/cart-class.js'
 import {getProduct} from '../../data/products.js'
 import formatCurrency from '../utils/price.js';
 import {deliveryOptions, getDeliveryOption} from '../../data/delivery-options.js';
@@ -10,7 +10,7 @@ export function renderOrderSummary(){
 
   let cartSummaryHTML = ''
 
-  cart.forEach((cartItem) => {
+  cart.cartItems.forEach((cartItem) => {
     // get productId out of cartItem
     const {productId} = cartItem;
 
@@ -37,7 +37,7 @@ export function renderOrderSummary(){
               ${matchingProduct.name}
             </div>
             <div class="product-price">
-              ${matchingProduct.getPrice()};
+              ${matchingProduct.getPrice()}
             </div>
             <div class="product-quantity">
               <span>
@@ -109,7 +109,7 @@ export function renderOrderSummary(){
     .forEach((button) => {
       button.addEventListener('click', () => {
         const {itemId} = button.dataset;
-        removeFromCart(itemId)
+        cart.removeFromCart(itemId)
 
         const container = document.querySelector(`.js-cart-item-${itemId}`)
           container.remove();
@@ -121,7 +121,7 @@ export function renderOrderSummary(){
   function updateCartQuantity(){
     
     const checkoutHeader = document.querySelector('.js-return-to-home-link')
-    checkoutHeader.innerHTML = `${calculateCartQuantity()} items`;
+    checkoutHeader.innerHTML = `${cart.calculateCartQuantity()} items`;
   };
   updateCartQuantity();
 
@@ -155,7 +155,7 @@ export function renderOrderSummary(){
 
     const newQuantity = Number(quantityInput.value);
 
-    updateQuantityLabel(newQuantity, itemId);
+    cart.updateQuantityLabel(newQuantity, itemId);
     updateCartQuantity();
     renderPaymentSummary();
     quantityInput.value = null;
@@ -174,7 +174,7 @@ export function renderOrderSummary(){
     .forEach((element) => {
         element.addEventListener('click', () => {
           const {productId, deliveryOptionId} = element.dataset;
-            updateDeliveryOption(productId, deliveryOptionId);
+            cart.updateDeliveryOption(productId, deliveryOptionId);
             // regenerate the whole page, to update delivery data automatically when delivery option is selected
             renderOrderSummary();
             renderPaymentSummary();

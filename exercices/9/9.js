@@ -55,8 +55,8 @@ car2.go()
 car2.go()
 car2.brake() // 15
 
-console.log(car1) // Car { brand: 'Toyota', model: 'Corolla', speed: 0, isTrunkOpen: true }
-console.log(car2) // Car { brand: 'Tesla', model: 'Model 3', speed: 15, isTrunkOpen: false }
+console.log(car1) // Car { speed: 0, isTrunkOpen: true }  , brand and model do not show in object because they are private properties
+console.log(car2) // Car { speed: 15, isTrunkOpen: false }  , but we can still access them like shown is displayInfo() with "#"
 
 car1.displayInfo() // Toyota Corolla, 0 km/h, true
 car2.displayInfo() // Tesla Model 3, 15 km/h, false
@@ -98,6 +98,6 @@ car3.go()
 car3.go()
 car3.go()
 
-console.log(car3) // Car { brand: 'McLaren', model: 'F1', speed: 100, isTrunkOpen: 'race cars do not have a trunk' }
+console.log(car3) // Car { speed: 100, isTrunkOpen: 'race cars do not have a trunk' }
 
 car3.displayInfo() // McLaren F1, 100 km/h, race cars do not have a trunk

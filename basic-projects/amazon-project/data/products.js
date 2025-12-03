@@ -59,6 +59,14 @@ export class Clothing extends Product {
   }
 };
 
+// const date = new Date()
+// console.log(date) // current full date e.g "Wed Dec 03 2025 07:52:33 GMT+0300 (East Africa Time)"
+// console.log(date.toLocaleDateString()); // current date e.g "12/3/2025" in the format of (month/day/year)
+// console.log(date.toLocaleTimeString()); // current time e.g "7:49:22 AM"
+
+
+
+
 // .map() runs a function on each item in the array and returns a new array
 export const products = [
   {

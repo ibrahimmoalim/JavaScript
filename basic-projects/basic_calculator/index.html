@@ -15,74 +15,97 @@
       </span>
 
       <button onclick="
-        clearScreen(); 
+        clearScreen()
       ">
         <strong>C</strong>
       </button>
       <button onclick="
-        calculate(' ( ');  
-      ">(</button>
+        util()
+        calculate(' ( ') 
+      ">&#40;</button>
       <button onclick="
-        calculate(' ) ');  
-      ">)</button>
+        util()
+        calculate(' ) ')
+      ">&#41;</button>
       <button>mod</button>
       <button onclick="
-        calc*='3.141592654';
-      ">Pi</button>
+        util()
+        addSpecialLetter('π')
+        calc*='3.141592654'
+      ">π</button>
       <button class="num" onclick="
+        clearPrevFormula()
         calculate('7')
       ">7</button>
       <button class="num" onclick="
+        clearPrevFormula()
         calculate('8') 
       ">8</button>
       <button class="num" onclick="
+        clearPrevFormula()
         calculate('9') 
       ">9</button>
       <button onclick="
+        util()
         calculate(' / ') 
       ">&divide;</button>
       <button>&radic;</button>
       <button class="num" onclick="
+        clearPrevFormula()
         calculate('4')
       ">4</button>
       <button class="num" onclick="
+        clearPrevFormula()
         calculate('5')
       ">5</button>
       <button class="num" onclick="
+        clearPrevFormula()
         calculate('6') 
       ">6</button>
       <button onclick="
+        util()
         calculate(' * ')
       ">x</button>
       <button onclick="
+        util()
+        addSquare()
         calc*=calc;
       "><em>X<sup>2</sup></em></button>
       <button class="num" onclick="
+        clearPrevFormula()
         calculate('1') 
       ">1</button>
       <button class="num" onclick="
+        clearPrevFormula()
         calculate('2')
       ">2</button>
       <button class="num" onclick="
+        clearPrevFormula()
         calculate('3')
       ">3</button>
       <button onclick="
+        util()
         calculate(' - ')
       ">-</button>
       <button class="equal-button" onclick="
-        calc=eval(calc);
+        calc=eval(calc)
         result()
       ">=</button>
       <button class="num" onclick="
+        clearPrevFormula()
         calculate('0')
       ">0</button>
       <button onclick="
+        clearPrevFormula()
         calculate('.')
       ">.</button>
       <button onclick="
-        calc/='100';
+        util()
+        addSpecialLetter('%')
+        calc/='100'
       ">%</button>
       <button onclick="
+        util()
         calculate(' + ')
       ">+</button>
     </div>
@@ -90,4 +113,4 @@
     <script src="calculator.js"></script>
     
   </body>
-</html>  
+</html>

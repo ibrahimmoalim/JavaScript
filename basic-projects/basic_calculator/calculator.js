@@ -5,11 +5,7 @@ const  formula = document.querySelector('.js-formula')
 const answer = document.querySelector('.js-result')
 
 function calculate(value){
-  if (value === '%'){
-    calc /= 100
-  } else {
-    calc+= value;
-  }
+  calc+= value;
   formula.innerHTML = calc
   // localStorage.setItem('calc', JSON.stringify(calc));
 }

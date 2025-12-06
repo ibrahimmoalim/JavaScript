@@ -14,6 +14,7 @@ xhr.addEventListener('load', () => {
 
   const img = document.getElementById('imgId')
   const paragraphEl = document.getElementById('pId');
+  console.log(result)
 
   if (result && result.size > 0) {
     img.src = imageUrl;
@@ -24,5 +25,6 @@ xhr.addEventListener('load', () => {
 
 // setup/prepare the request (method, url)
 xhr.open('GET', 'https://supersimplebackend.dev/images/apple.jpg');
+// xhr.open('GET', 'https://supersimplebackend.dev/documentation');
 // send the request
 xhr.send();

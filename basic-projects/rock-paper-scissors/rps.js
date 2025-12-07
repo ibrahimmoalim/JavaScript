@@ -40,7 +40,7 @@ document.body.addEventListener('keydown', (event) => {
 function playGame(playerMove){
   const AiMove= pickAiMove();
 
-  result='';
+  let result = '';
 
   if (playerMove==='Scissors'){
     if (AiMove==='Rock') {
@@ -52,7 +52,9 @@ function playGame(playerMove){
     }
   }
   
-  else if (playerMove==='Paper'){
+
+
+  if (playerMove==='Paper'){
     if (AiMove==='Rock') {
       result= 'You win.';
     } else if (AiMove==='Paper') {
@@ -62,7 +64,7 @@ function playGame(playerMove){
     }
   } 
   
-  else if (playerMove==='Rock'){
+  if (playerMove==='Rock'){
     if (AiMove==='Rock') {
       result= 'Tie.';
     } else if (AiMove==='Paper') {
@@ -153,8 +155,9 @@ document.querySelector('.reset-score')
 
 
 function pickAiMove(){
-  const randomNumber= Math.random();
-  let AiMove='';
+  const randomNumber = Math.random();
+
+  let AiMove = '';
 
   if (randomNumber >= 0 && randomNumber < 1/3) {
     AiMove='Rock';
@@ -236,4 +239,3 @@ function autoplay(){
 		isAutoPlaying = false;
 	}
 };
-

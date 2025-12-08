@@ -8,7 +8,24 @@ fetch('https://supersimplebackend.dev/hello').then((response) => {
 fetch('https://supersimplebackend.dev/products').then((response) => {
   return response.json() // automatically does JSON.parse
 }).then((result) => {
+  // console.log(result)
+  // outputs json contents in an array format
+  // in this example an array containing all products
+})
+
+
+// error handling
+
+// fake url for practice
+fetch('https://error.supersimplebackend.dev/products').then((response) => {
+  return response.json() // automatically does JSON.parse
+}).then((result) => {
   console.log(result)
   // outputs json contents in an array format
   // in this example an array containing all products
+
+}).catch((error) => {
+  console.error('error, try again') // error, try again
+  // to get information about the error do:
+  console.error(error) // (long info about error)
 })

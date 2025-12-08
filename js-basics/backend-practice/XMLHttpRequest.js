@@ -70,3 +70,21 @@ xhr3.addEventListener('load', () => {
 
 xhr3.open('GET', 'https://supersimplebackend.dev/hello')
 xhr3.send();
+
+
+
+// Error handling
+
+const xhr4 = new XMLHttpRequest()
+
+xhr4.addEventListener('error', (error) => {
+  
+  // c.error will show it like a proper error with red background
+  console.error('error, try again') // error, try again
+  console.error(error) // (info about error)
+
+});
+
+// this url doesn't exist, it's for error practice
+xhr4.open('GET', 'https://error.supersimplebackend.dev/hello')
+xhr4.send();

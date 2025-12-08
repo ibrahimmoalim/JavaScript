@@ -1,27 +1,27 @@
 // async makes code return a promise
-// async function hello() {
-//   return 'hello'
-// };
+async function hello() {
+  return 'hello'
+};
 
-// hello().then((message) => {
-//   console.log(message) // hello
-//   console.log('next step') // next step
-// });
+hello().then((message) => {
+  console.log(message) // hello
+  console.log('next step') // next step
+});
 
 
 
-// // this is same as code above
-// // just uses more code
-// function hello2(){
-//   return new Promise((resolve) => {
-//     resolve('hello2')
-//   })
-// };
+// this is same as code above
+// just uses more code
+function hello2(){
+  return new Promise((resolve) => {
+    resolve('hello2')
+  })
+};
 
-// hello2().then((message) => {
-//   console.log(message) // hello2
-//   console.log('next step2') // next step2
-// });
+hello2().then((message) => {
+  console.log(message) // hello2
+  console.log('next step2') // next step2
+});
 
 
 // async await example 1:
@@ -65,6 +65,36 @@ async function getData(){
 async function showData(){
   console.log('loading...')
   const text = await getData()
-  console.log(text)
+  console.log(text) // This is the URL path /hello
 }
 showData()
+
+
+
+// Error handling
+
+async function getError(){
+
+  // tries the code  
+  try {
+
+    // if the url is non-existent, the output will be the error we put below
+    const response = await fetch('https://error.supersimplebackend.dev/hello');
+    const result = await response.text();
+    return result
+
+    // catches errors if there are any
+  } catch (error) {
+
+    console.error('error, try again') // error, try again
+    return error // (returns the error object for more info about error)
+
+  }
+}
+
+async function showError(){
+  console.log('loading...')
+  const text = await getError()
+  console.log(text) // (will show the error object)
+}
+showError()

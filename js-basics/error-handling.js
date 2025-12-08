@@ -59,6 +59,9 @@ async function throwError2() {
   try {
     const result = await new Promise((resolve, reject) => {
 
+      // regular error throw
+      // throw 'early error'
+
       setTimeout(() => {
         reject('Unexpected error, please try again!')
 

@@ -34,7 +34,10 @@ function calculateParrotHeight(totalHeight, humanMinusParrot){
 
   parrotHeight = humanHeight - humanMinusParrot
 
-  console.log(parrotHeight) // 15
+  console.log(parrotHeight)
 }
 
-calculateParrotHeight(200, 170)
+calculateParrotHeight(200, 170) // 15
+calculateParrotHeight(300, 150) // 75
+calculateParrotHeight(250, 190) // 30
+calculateParrotHeight(150, 85) // 32.5

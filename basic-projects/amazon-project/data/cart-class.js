@@ -60,8 +60,8 @@ class Cart {
     });
 
     this.cartItems = newCart;
-    this.saveToStorage();
     renderPaymentSummary();
+    this.saveToStorage();
   }
 
   calculateCartQuantity(){

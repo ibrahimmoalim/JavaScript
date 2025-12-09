@@ -1,5 +1,6 @@
 import { orders } from "./orders.js";
 import { getProduct } from "../data/products.js";
+import { cart } from "../data/cart-class.js";
 import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs/+esm';
 
 
@@ -26,10 +27,13 @@ orders.forEach(order => {
 
       quantity = item.quantity
       arrivalTime = dayjs(item.estimatedDeliveryTime).format('dddd, MMMM D')
-      
+
     }
   })
-})
+});
+
+document.querySelector('.js-cart-quantity')
+    .innerHTML = cart.calculateCartQuantity();
 
 
 trackingPageHTML.innerHTML = `

@@ -18,16 +18,23 @@ const matchingProduct = getProduct(productId)
 
 let quantity;
 let arrivalTime;
+let orderTime;
+let progressBar;
 
 orders.forEach(order => {
+
+  orderTime = dayjs(order.orderTime).format('D')
 
   order.products.forEach(item => {
 
     if (item.productId === matchingProduct.id && order.id === orderId){
 
       quantity = item.quantity
-      arrivalTime = dayjs(item.estimatedDeliveryTime).format('dddd, MMMM D')
+      arrivalTime = dayjs(item.estimatedDeliveryTime)
 
+      const deliveryTime = arrivalTime.format('D')
+      progressBar = (((dayjs().format('D')) - orderTime) / (deliveryTime - orderTime)) * 100
+      
     }
   })
 });
@@ -44,7 +51,7 @@ trackingPageHTML.innerHTML = `
     </a>
 
     <div class="delivery-date">
-      Arriving on ${arrivalTime}
+      Arriving on ${arrivalTime.format('dddd, MMMM D')}
     </div>
 
     <div class="product-info">
@@ -58,20 +65,31 @@ trackingPageHTML.innerHTML = `
     <img class="product-image" src="${matchingProduct.image}">
 
     <div class="progress-labels-container">
-      <div class="progress-label">
+      <div class="progress-label js-preparing">
         Preparing
       </div>
-      <div class="progress-label current-status">
+      <div class="progress-label js-shipped">
         Shipped
       </div>
-      <div class="progress-label">
+      <div class="progress-label js-delivered">
         Delivered
       </div>
     </div>
 
     <div class="progress-bar-container">
-      <div class="progress-bar"></div>
+      <div style="width:${progressBar}%;" class="progress-bar"></div>
     </div>
   </div>
 
 `
+
+if (progressBar <= 49){
+  document.querySelector('.js-preparing')
+    .classList.add('current-status')
+} else if (progressBar > 49 && progressBar < 100){
+  document.querySelector('.js-shipped')
+    .classList.add('current-status')
+} else {
+  document.querySelector('.js-delivered')
+    .classList.add('current-status')
+};

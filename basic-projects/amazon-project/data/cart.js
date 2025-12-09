@@ -1,83 +1,86 @@
-import {deliveryOptions} from '../data/delivery-options.js';
-import { renderPaymentSummary } from '../scripts/checkout/payment-summary.js';
-
-// named export, used when there are multiple exports in the file
-export let cart = JSON.parse(localStorage.getItem('cart')) || [];
+// using class version of this code on "./data/cart-class.js"
 
 
-function saveToStorage(){
-  localStorage.setItem('cart', JSON.stringify(cart))
-};
+// import {deliveryOptions} from '../data/delivery-options.js';
+// import { renderPaymentSummary } from '../scripts/checkout/payment-summary.js';
 
-export function addToCart(productId){
-  const selectQuant = document.querySelector(`.js-select-quant-${productId}`)
-  const quantity = Number(selectQuant.value)
+// // named export, used when there are multiple exports in the file
+// export let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  let matchingItem;
 
-  cart.forEach((cartItem) => {
-    if (productId === cartItem.productId) {
-      matchingItem = cartItem;
-    }
-  });
+// function saveToStorage(){
+//   localStorage.setItem('cart', JSON.stringify(cart))
+// };
+
+// export function addToCart(productId){
+//   const selectQuant = document.querySelector(`.js-select-quant-${productId}`)
+//   const quantity = Number(selectQuant.value)
+
+//   let matchingItem;
+
+//   cart.forEach((cartItem) => {
+//     if (productId === cartItem.productId) {
+//       matchingItem = cartItem;
+//     }
+//   });
   
-  if (matchingItem) {
-    matchingItem.quantity += quantity;
-  } else {
-    cart.push({
-      productId,
-      quantity,
-      deliveryOptionId: deliveryOptions[0].id
-    });
-  };
+//   if (matchingItem) {
+//     matchingItem.quantity += quantity;
+//   } else {
+//     cart.push({
+//       productId,
+//       quantity,
+//       deliveryOptionId: deliveryOptions[0].id
+//     });
+//   };
 
-  saveToStorage();
-};
-
-
-export function removeFromCart(itemId){
-  const newCart = [];
-
-  cart.forEach((cartItem) => {
-    if (cartItem.productId !== itemId){
-      newCart.push(cartItem)
-    }
-  });
-  cart = newCart;
-  saveToStorage();
-  renderPaymentSummary();
-};
+//   saveToStorage();
+// };
 
 
-export function calculateCartQuantity(){
-  let cartQuantity = 0;
-  cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
-  })
-  saveToStorage();
-  return cartQuantity;
-};
+// export function removeFromCart(itemId){
+//   const newCart = [];
+
+//   cart.forEach((cartItem) => {
+//     if (cartItem.productId !== itemId){
+//       newCart.push(cartItem)
+//     }
+//   });
+//   cart = newCart;
+//   saveToStorage();
+//   renderPaymentSummary();
+// };
 
 
-export function updateQuantityLabel(newQuantity, itemId){
-  cart.forEach((cartItem) => {
-    if (cartItem.productId === itemId && newQuantity > 0){
-      document.querySelector(`.js-quantity-label-${itemId}`).innerHTML = newQuantity;
-      cartItem.quantity = newQuantity;
-    }
-  })
-};
+// export function calculateCartQuantity(){
+//   let cartQuantity = 0;
+//   cart.forEach((cartItem) => {
+//     cartQuantity += cartItem.quantity;
+//   })
+//   saveToStorage();
+//   return cartQuantity;
+// };
 
-export function updateDeliveryOption(productId, deliveryOptionId){
-  let matchingItem;
 
-  cart.forEach((cartItem) => {
-    if (productId === cartItem.productId) {
-      matchingItem = cartItem;
-    }
-  });
+// export function updateQuantityLabel(newQuantity, itemId){
+//   cart.forEach((cartItem) => {
+//     if (cartItem.productId === itemId && newQuantity > 0){
+//       document.querySelector(`.js-quantity-label-${itemId}`).innerHTML = newQuantity;
+//       cartItem.quantity = newQuantity;
+//     }
+//   })
+// };
 
-  matchingItem.deliveryOptionId = deliveryOptionId;
+// export function updateDeliveryOption(productId, deliveryOptionId){
+//   let matchingItem;
 
-  saveToStorage();
-};
+//   cart.forEach((cartItem) => {
+//     if (productId === cartItem.productId) {
+//       matchingItem = cartItem;
+//     }
+//   });
+
+//   matchingItem.deliveryOptionId = deliveryOptionId;
+
+//   saveToStorage();
+// };

@@ -1,13 +1,13 @@
-import formatCurrency from "../scripts/utils/price.js";
+import formatCurrency from "./utils/price.js";
 import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs/+esm';
-import { getProduct } from "./products.js";
-import { cart } from "./cart-class.js";
+import { getProduct } from "../data/products.js";
+import { cart } from "../data/cart-class.js";
 
 
 
 
 export const orders = JSON.parse(localStorage.getItem('orders')) || [];
-
+console.log(orders)
 export function addOrder(order){
   orders.unshift(order)
   saveToStorage()
@@ -41,12 +41,10 @@ function generateOrdersHTML(){
       const orderPlaced = dayjs(order.orderTime).format('MMMM D')
       const totalCost = formatCurrency(order.totalCostCents)
 
-      let matchingProduct;
-
       let orderedProductsHTML = ''
 
       order.products.forEach(item => {
-        matchingProduct = getProduct(item.productId)
+        const matchingProduct = getProduct(item.productId)
 
 
         const time = dayjs(item.estimatedDeliveryTime).format('MMMM D')
@@ -74,7 +72,7 @@ function generateOrdersHTML(){
           </div>
       
           <div class="product-actions">
-            <a href="tracking.html">
+            <a href="tracking.html?orderId=${order.id}&productId=${item.productId}">
               <button class="track-package-button button-secondary">
                 Track package
               </button>

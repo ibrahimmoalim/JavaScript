@@ -2,7 +2,7 @@ import { cart } from "../../data/cart-class.js"
 import { getProduct } from "../../data/products.js";
 import formatCurrency from "../utils/price.js";
 import { getDeliveryOption } from "../../data/delivery-options.js";
-import { addOrder } from "../../data/orders.js";
+import { addOrder } from "../orders.js";
 
 
 

@@ -1,10 +1,15 @@
+import formatCurrency from "../scripts/utils/price.js";
+import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs/+esm';
+import { getProduct } from "./products.js";
+import { cart } from "./cart-class.js";
+
 export const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
 export function addOrder(order){
   orders.unshift(order)
   saveToStorage()
 };
-console.log(JSON.stringify(orders))
+console.log(orders)
 
 function saveToStorage(){
   localStorage.setItem('orders', JSON.stringify(orders))
@@ -19,91 +24,141 @@ function generateOrdersHTML(){
   
   if (!ordersHTML) return; // This module runs on multiple pages. Skip rendering unless the Orders UI (ordersHTML) exists.
 
+  // ordersHTML.innerHTML = localStorage.getItem('ordersHTML') || ''
+
+  document.querySelector('.js-cart-quantity')
+  .innerHTML = cart.calculateCartQuantity();
+
   if (orders.length <= 0){
     ordersHTML.remove()
     document.querySelector('.js-orders-page-title').innerHTML = 'You have no orders'
   } else {
 
-    ordersHTML.innerHTML += `
-    
-      <div class="order-container">
-          
-          <div class="order-header">
-            <div class="order-header-left-section">
-              <div class="order-date">
-                <div class="order-header-label">Order Placed:</div>
-                <div>August 12</div>
-              </div>
-              <div class="order-total">
-                <div class="order-header-label">Total:</div>
-                <div>$35.06</div>
-              </div>
-            </div>
+    let totalCost = 0
 
-            <div class="order-header-right-section">
-              <div class="order-header-label">Order ID:</div>
-              <div>${orders[0].id}</div>
-            </div>
+    orders.forEach(order => {
+
+      totalCost = formatCurrency(order.totalCostCents)
+
+      let matchingProduct;
+
+      let orderedProductsHTML = ''
+
+      order.products.forEach(item => {
+        matchingProduct = getProduct(item.productId)
+
+        orderedProductsHTML += `
+          <div class="product-image-container">
+            <img src="${matchingProduct.image}">
           </div>
-
-          <div class="order-details-grid">
-            <div class="product-image-container">
-              <img src="images/products/athletic-cotton-socks-6-pairs.jpg">
+      
+          <div class="product-details">
+            <div class="product-name">
+              ${matchingProduct.name}
             </div>
-
-            <div class="product-details">
-              <div class="product-name">
-                Black and Gray Athletic Cotton Socks - 6 Pairs
-              </div>
-              <div class="product-delivery-date">
-                Arriving on: August 15
-              </div>
-              <div class="product-quantity">
-                Quantity: 1
-              </div>
-              <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
-                <span class="buy-again-message">Buy it again</span>
-              </button>
+            <div class="product-delivery-date">
+              Arriving on: ${dayjs().add(3, 'days').format('MMMM D')}
             </div>
-
-            <div class="product-actions">
-              <a href="tracking.html">
-                <button class="track-package-button button-secondary">
-                  Track package
-                </button>
-              </a>
+            <div class="product-quantity">
+              Quantity: ${item.quantity}
             </div>
-
-            <div class="product-image-container">
-              <img src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg">
-            </div>
-
-            <div class="product-details">
-              <div class="product-name">
-                Adults Plain Cotton T-Shirt - 2 Pack
-              </div>
-              <div class="product-delivery-date">
-                Arriving on: August 19
-              </div>
-              <div class="product-quantity">
-                Quantity: 2
-              </div>
-              <button class="buy-again-button button-primary">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
-                <span class="buy-again-message">Buy it again</span>
-              </button>
-            </div>
-
-            <div class="product-actions">
-              <a href="tracking.html">
-                <button class="track-package-button button-secondary">
-                  Track package
-                </button>
-              </a>
-            </div>
+            <button class="buy-again-button button-primary">
+              <img class="buy-again-icon" src="images/icons/buy-again.png">
+              <span class="buy-again-message">Buy it again</span>
+            </button>
           </div>
-      </div>
-    `
+      
+          <div class="product-actions">
+            <a href="tracking.html">
+              <button class="track-package-button button-secondary">
+                Track package
+              </button>
+            </a>
+          </div>
+        `
+      })
+
+
+
+      ordersHTML.innerHTML += `
+      
+        <div class="order-container">
+            
+            <div class="order-header">
+              <div class="order-header-left-section">
+                <div class="order-date">
+                  <div class="order-header-label">Order Placed:</div>
+                  <div>${dayjs().format('MMMM D')}</div>
+                </div>
+                <div class="order-total">
+                  <div class="order-header-label">Total:</div>
+                  <div>${totalCost}</div>
+                </div>
+              </div>
+  
+              <div class="order-header-right-section">
+                <div class="order-header-label">Order ID:</div>
+                <div>${order.id}</div>
+              </div>
+            </div>
+  
+            <div class="order-details-grid">
+              ${orderedProductsHTML}
+            </div>
+        </div>
+      `
+    })
+
+
+    localStorage.setItem('ordersHTML', (ordersHTML.innerHTML))
   }
 };
+
+
+
+
+
+// generateOrderedProducts();
+// function generateOrderedProducts(){
+//   let orderedProductsHTML = document.querySelector('.js-order-details')
+
+//   if (!orderedProductsHTML) return;
+
+//   orders[0].products.forEach(item => {
+
+//     const matchingProduct = getProduct(item.productId)
+
+//     console.log(matchingProduct)
+
+//     orderedProductsHTML.innerHTML += `
+//       <div class="product-image-container">
+//         <img src="${matchingProduct.image}">
+//       </div>
+  
+//       <div class="product-details">
+//         <div class="product-name">
+//           ${matchingProduct.name}
+//         </div>
+//         <div class="product-delivery-date">
+//           Arriving on: August 15
+//         </div>
+//         <div class="product-quantity">
+//           Quantity: 1
+//         </div>
+//         <button class="buy-again-button button-primary">
+//           <img class="buy-again-icon" src="images/icons/buy-again.png">
+//           <span class="buy-again-message">Buy it again</span>
+//         </button>
+//       </div>
+  
+//       <div class="product-actions">
+//         <a href="tracking.html">
+//           <button class="track-package-button button-secondary">
+//             Track package
+//           </button>
+//         </a>
+//       </div>
+    
+//     `
+//   });
+// }

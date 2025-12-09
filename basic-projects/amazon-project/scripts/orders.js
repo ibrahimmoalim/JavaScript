@@ -7,7 +7,8 @@ import { cart } from "../data/cart-class.js";
 
 
 export const orders = JSON.parse(localStorage.getItem('orders')) || [];
-console.log(orders)
+
+
 export function addOrder(order){
   orders.unshift(order)
   saveToStorage()
@@ -29,7 +30,7 @@ function generateOrdersHTML(){
   // ordersHTML.innerHTML = localStorage.getItem('ordersHTML') || ''
 
   document.querySelector('.js-cart-quantity')
-  .innerHTML = cart.calculateCartQuantity();
+    .innerHTML = cart.calculateCartQuantity();
 
   if (orders.length <= 0){
     ordersHTML.remove()

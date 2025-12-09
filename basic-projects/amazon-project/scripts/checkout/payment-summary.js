@@ -99,6 +99,8 @@ export function renderPaymentSummary(){
 
           const order = await response.json()
           addOrder(order);
+          paymentHTML.remove();
+          document.querySelector('.js-page-title').innerHTML = 'Cart is empty';
 
         } catch (error) {
 

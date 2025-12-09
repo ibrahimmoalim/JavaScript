@@ -3,13 +3,15 @@ import dayjs from 'https://cdn.jsdelivr.net/npm/dayjs/+esm';
 import { getProduct } from "./products.js";
 import { cart } from "./cart-class.js";
 
+
+
+
 export const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
 export function addOrder(order){
   orders.unshift(order)
   saveToStorage()
 };
-console.log(orders)
 
 function saveToStorage(){
   localStorage.setItem('orders', JSON.stringify(orders))
@@ -34,11 +36,10 @@ function generateOrdersHTML(){
     document.querySelector('.js-orders-page-title').innerHTML = 'You have no orders'
   } else {
 
-    let totalCost = 0
-
     orders.forEach(order => {
 
-      totalCost = formatCurrency(order.totalCostCents)
+      const orderPlaced = dayjs(order.orderTime).format('MMMM D')
+      const totalCost = formatCurrency(order.totalCostCents)
 
       let matchingProduct;
 
@@ -46,6 +47,10 @@ function generateOrdersHTML(){
 
       order.products.forEach(item => {
         matchingProduct = getProduct(item.productId)
+
+
+        const time = dayjs(item.estimatedDeliveryTime).format('MMMM D')
+
 
         orderedProductsHTML += `
           <div class="product-image-container">
@@ -57,7 +62,7 @@ function generateOrdersHTML(){
               ${matchingProduct.name}
             </div>
             <div class="product-delivery-date">
-              Arriving on: ${dayjs().add(3, 'days').format('MMMM D')}
+              Arriving on: ${time}
             </div>
             <div class="product-quantity">
               Quantity: ${item.quantity}
@@ -88,7 +93,7 @@ function generateOrdersHTML(){
               <div class="order-header-left-section">
                 <div class="order-date">
                   <div class="order-header-label">Order Placed:</div>
-                  <div>${dayjs().format('MMMM D')}</div>
+                  <div>${orderPlaced}</div>
                 </div>
                 <div class="order-total">
                   <div class="order-header-label">Total:</div>
@@ -113,52 +118,3 @@ function generateOrdersHTML(){
     localStorage.setItem('ordersHTML', (ordersHTML.innerHTML))
   }
 };
-
-
-
-
-
-// generateOrderedProducts();
-// function generateOrderedProducts(){
-//   let orderedProductsHTML = document.querySelector('.js-order-details')
-
-//   if (!orderedProductsHTML) return;
-
-//   orders[0].products.forEach(item => {
-
-//     const matchingProduct = getProduct(item.productId)
-
-//     console.log(matchingProduct)
-
-//     orderedProductsHTML.innerHTML += `
-//       <div class="product-image-container">
-//         <img src="${matchingProduct.image}">
-//       </div>
-  
-//       <div class="product-details">
-//         <div class="product-name">
-//           ${matchingProduct.name}
-//         </div>
-//         <div class="product-delivery-date">
-//           Arriving on: August 15
-//         </div>
-//         <div class="product-quantity">
-//           Quantity: 1
-//         </div>
-//         <button class="buy-again-button button-primary">
-//           <img class="buy-again-icon" src="images/icons/buy-again.png">
-//           <span class="buy-again-message">Buy it again</span>
-//         </button>
-//       </div>
-  
-//       <div class="product-actions">
-//         <a href="tracking.html">
-//           <button class="track-package-button button-secondary">
-//             Track package
-//           </button>
-//         </a>
-//       </div>
-    
-//     `
-//   });
-// }

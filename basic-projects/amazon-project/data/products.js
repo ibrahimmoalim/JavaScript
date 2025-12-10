@@ -19,6 +19,7 @@ class Product {
   name;
   rating;
   priceCents;
+  keywords;
 
   constructor (productDetails) {
     this.id = productDetails.id;
@@ -26,6 +27,7 @@ class Product {
     this.name = productDetails.name;
     this.rating = productDetails.rating;
     this.priceCents = productDetails.priceCents;
+    this.keywords = productDetails.keywords;
   }
 
   getStarsUrl() {
@@ -216,6 +218,7 @@ export const products = [
     priceCents: 3390,
     keywords: [
       "shoes",
+      "shoe",
       "running shoes",
       "footwear"
     ]
@@ -389,6 +392,7 @@ export const products = [
     priceCents: 2640,
     keywords: [
       "shoes",
+      "shoe",
       "flats",
       "womens",
       "footwear"
@@ -489,6 +493,7 @@ export const products = [
     priceCents: 3890,
     keywords: [
       "shoes",
+      "shoe",
       "running shoes",
       "footwear",
       "mens"
@@ -641,6 +646,7 @@ export const products = [
     priceCents: 3390,
     keywords: [
       "shoes",
+      "shoe",
       "running shoes",
       "footwear",
       "womens"

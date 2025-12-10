@@ -3,7 +3,29 @@ import {products} from '../data/products.js'
 
 let productsHTML = '';
 
-products.forEach((product) => {
+
+
+const url = new URL(window.location.href)
+const search = url.searchParams.get('search');
+
+let filteredProducts = products;
+
+// If a search exists in the URL parameters,
+// filter the products that match the search.
+if (search) {
+  const searchLower = search.toLowerCase()
+  filteredProducts = products.filter((product) => {
+    return product.name.toLowerCase().includes(searchLower) ||
+    product.keywords.includes(searchLower)
+  })
+}
+
+if (filteredProducts.length === 0){
+  alert (`no products match your search: ${search}`)
+  window.location.href = 'index.html'
+}
+
+filteredProducts.forEach(product => {
   productsHTML += `
     <div class="product-container">
       <div class="product-image-container">
@@ -97,3 +119,18 @@ document.querySelectorAll('.js-add-to-cart')
 
     });
   });
+
+
+const searchButton = document.querySelector('.js-search-button')
+
+searchButton.addEventListener('click',() => {
+  const search = document.querySelector('.js-search-bar').value
+  window.location.href = `index.html?search=${search}`
+});
+
+document.querySelector('.js-search-bar').addEventListener('keydown', (event) => {
+  if (event.key === 'Enter'){
+    const search = document.querySelector('.js-search-bar').value
+    window.location.href = `index.html?search=${search}`
+  }
+});

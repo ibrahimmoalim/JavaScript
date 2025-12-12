@@ -24,9 +24,9 @@
 */
 
 
-let parrotHeight = 0
+let parrotHeight;
 
-let humanHeight = 0
+let humanHeight;
 
 function calculateParrotHeight(totalHeight, humanMinusParrot){
   

@@ -1,5 +1,4 @@
-// Binary to Decimal
-//
+// IPv4 Binary to Decimal
 
 
 const Binary = document.getElementById('input1')
@@ -83,6 +82,6 @@ function BinaryToDecimal(Binary){
   };
 
 
-  return IPAddressInDecimal = `Result: ${firstOctetDecimal}.${secondOctetDecimal}.${thirdOctetDecimal}.${fourthOctetDecimal}`
+  return `Result: ${firstOctetDecimal}.${secondOctetDecimal}.${thirdOctetDecimal}.${fourthOctetDecimal}`
 
 }

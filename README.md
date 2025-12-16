@@ -33,3 +33,6 @@ for Problem Solving:
 
 [Mini Amazon](https://ibrahimmoalim.github.io/JavaScript/basic-projects/amazon-project/)
 ---
+
+[Conversion Tool](https://ibrahimmoalim.github.io/JavaScript/problemSolvingPractices/problems/p3-ConversionTool/)
+---

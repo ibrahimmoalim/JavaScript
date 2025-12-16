@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial;
+}
+
+input:focus {
+  outline: 1px solid lightslategray;
+}
+
+input {
+  width: 350px;
+  padding: 2px 2px;
+  font-weight: bold;
+}
+
+button {
+  background-color: white;
+  padding: 3px 2px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 0.5;
+}

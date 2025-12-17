@@ -114,12 +114,16 @@ function BinaryToDecimal(Binary){
 
 function DeicmalToBinary(Decimal){
 
+  // error checks
   if (!Decimal) return errorMsg3
   if (Decimal.length > 15 || Decimal.length < 7) return errorMsg4;
 
   const chart = [128,64,32,16,8,4,2,1]
 
   const octets = Decimal.split('.')
+
+  // more error checks
+  if (octets.length !== 4) return errorMsg4
 
   if (octets[0].length > 3 || octets[0].length < 1) return errorMsg5
   if (octets[1].length > 3 || octets[1].length < 1) return errorMsg5
@@ -136,9 +140,10 @@ function DeicmalToBinary(Decimal){
   let thirdOctet = ''
   let fourthOctet= ''
 
-  // if octetOne from input includes anyhting thats not a number (like 'h')
-  // we make octetOne be more that 3 digits (4444) which would return errorMsg6
-  let octetOne = Number(octets[0]) ? Number(octets[0]) : 4444
+  let octetOne = Number(octets[0])
+
+  // more error checks
+  if (Number.isNaN(octetOne)) return errorMsg4
   if (octetOne < 0 || octetOne > 255) return errorMsg6
 
   for (let i=0; i < chart.length; i++) {
@@ -152,7 +157,9 @@ function DeicmalToBinary(Decimal){
     }
   }  
 
-  let octetTwo = Number(octets[1]) ? Number(octets[1]) : 4444
+  let octetTwo = Number(octets[1])
+
+  if (Number.isNaN(octetTwos)) return errorMsg4
   if (octetTwo < 0 || octetTwo > 255) return errorMsg6
 
   for (let i=0; i < chart.length; i++) {
@@ -167,7 +174,9 @@ function DeicmalToBinary(Decimal){
 
   }
 
-  let octetThree = Number(octets[2]) ? Number(octets[2]) : 4444
+  let octetThree = Number(octets[2])
+
+  if (Number.isNaN(octetThree)) return errorMsg4
   if (octetThree < 0 || octetThree > 255) return errorMsg6
 
   for (let i=0; i < chart.length; i++) {
@@ -182,7 +191,9 @@ function DeicmalToBinary(Decimal){
 
   }
 
-  let octetFour = Number(octets[3]) ? Number(octets[3]) : 4444
+  let octetFour = Number(octets[3])
+
+  if (Number.isNaN(octetFour)) return errorMsg4
   if (octetFour < 0 || octetFour > 255) return errorMsg6
 
   for (let i=0; i < chart.length; i++) {

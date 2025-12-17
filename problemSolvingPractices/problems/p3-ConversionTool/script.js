@@ -112,6 +112,8 @@ function BinaryToDecimal(Binary){
 
 }
 
+// // IPv4 Decimal to Binary
+
 function DeicmalToBinary(Decimal){
 
   // error checks
@@ -155,7 +157,7 @@ function DeicmalToBinary(Decimal){
     } else {
       firstOctet +=0
     }
-  }  
+  }
 
   let octetTwo = Number(octets[1])
 

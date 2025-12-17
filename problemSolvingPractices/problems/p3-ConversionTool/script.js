@@ -123,7 +123,7 @@ function DeicmalToBinary(Decimal){
   const octets = Decimal.split('.')
 
   // more error checks
-  if (octets.length !== 4) return errorMsg4
+  // if (octets.length !== 4) return errorMsg4
 
   if (octets[0].length > 3 || octets[0].length < 1) return errorMsg5
   if (octets[1].length > 3 || octets[1].length < 1) return errorMsg5
@@ -159,7 +159,7 @@ function DeicmalToBinary(Decimal){
 
   let octetTwo = Number(octets[1])
 
-  if (Number.isNaN(octetTwos)) return errorMsg4
+  if (Number.isNaN(octetTwo)) return errorMsg4
   if (octetTwo < 0 || octetTwo > 255) return errorMsg6
 
   for (let i=0; i < chart.length; i++) {

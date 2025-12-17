@@ -125,7 +125,7 @@ function DeicmalToBinary(Decimal){
   const octets = Decimal.split('.')
 
   // more error checks
-  // if (octets.length !== 4) return errorMsg4
+  if (octets.length !== 4) return errorMsg4
 
   if (octets[0].length > 3 || octets[0].length < 1) return errorMsg5
   if (octets[1].length > 3 || octets[1].length < 1) return errorMsg5

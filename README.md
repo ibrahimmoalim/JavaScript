@@ -7,7 +7,7 @@ All trademarks, brand names, and logos belong to their respective owners.
 >This project is strictly non-commercial and created only for learning purposes.
 
 
-Learning from **YouTube**:  
+Learned mainly from **YouTube**:  
 [*JavaScript Tutorial Full Course - Beginner to Pro*](https://www.youtube.com/watch?v=EerdGm-ehJQ)
 
 for Problem Solving:  

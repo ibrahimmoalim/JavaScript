@@ -1,3 +1,37 @@
+const savedTheme = localStorage.getItem('theme')
+const html = document.documentElement
+const toggleBtn = document.getElementById('themeToggle')
+
+setTheme()
+
+if (savedTheme) {
+  html.setAttribute('data-theme', savedTheme)
+  toggleBtn.src = savedTheme == 'dark' ? 'icons/sun.png' : 'icons/moon.png'
+}
+
+if (!savedTheme) {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  html.setAttribute('data-theme', prefersDark ? 'dark' : 'light')
+  toggleBtn.src = prefersDark ? 'icons/sun.png' : 'icons/moon.png'
+}
+
+function setTheme() {
+
+  toggleBtn.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+
+    if (currentTheme == 'dark') {
+      html.setAttribute('data-theme', 'light')
+      toggleBtn.src = 'icons/moon.png'
+      localStorage.setItem('theme', 'light')
+    } else {
+      html.setAttribute('data-theme', 'dark')
+      toggleBtn.src = 'icons/sun.png'
+      localStorage.setItem('theme', 'dark')
+    }
+  })
+}
+
 // IPv4 Binary to Decimal
 
 

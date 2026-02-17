@@ -1,3 +1,34 @@
+:root {
+  --bg: white;
+  --text: black;
+  --border: black;
+}
+
+[data-theme='dark'] {
+  --bg: rgb(26, 26, 26);
+  --text: white;
+}
+
+body {
+  margin: 0;
+  padding: 10px 10px;
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0s, color 0s;
+}
+
+#themeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+}
+#themeToggle:hover {
+  cursor: pointer;
+}
+
 * {
   padding: 0;
   margin: 0;
